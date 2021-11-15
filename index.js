@@ -3,9 +3,7 @@ import { GoogleProjection } from 'jsfreemaplib';
 
 AFRAME.registerComponent("geolocate", {
     init: function() {
-        console.log('yo')
         if(navigator.geolocation) {
-            console.log('hello')
             // @todo change getCurrentPosition() to watchPosition() before submit
             navigator.geolocation.getCurrentPosition (
                     async gpspos=> {
