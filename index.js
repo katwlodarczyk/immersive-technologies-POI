@@ -2,19 +2,25 @@ import 'aframe';
 import '@ar-js-org/ar.js';
 import 'aframe-look-at-component';
 import 'aframe-osm-3d';
+import { GoogleProjection } from 'jsfreemaplib';
 
-AFRAME.registerComponent("peakfinder", {
+AFRAME.registerComponent("geolocate", {
     init: function() {
         this.camera = document.querySelector('[camera]');
         window.addEventListener('gps-camera-update-position', async (e) => {
+
             this.el.setAttribute('terrarium-dem', {
                 lat: e.detail.position.latitude,
-                lon: e.detail.position.longitude 
+                lon: e.detail.position.longitude
             })
+            // Display current location on screen
+            document.getElementById('lon').innerHTML = "Longitute:"+ e.detail.position.longitude.toFixed(5);
+            document.getElementById('lat').innerHTML = "Latitude:"+e.detail.position.latitude.toFixed(5);
         });
         this.el.addEventListener('elevation-available', e => {
             this.camera.object3D.position.y = e.detail.elevation;
         });
+
 
         this.el.addEventListener('osm-data-loaded', e => {
             console.log(e.detail.pois)
@@ -151,4 +157,4 @@ AFRAME.registerComponent("peakfinder", {
             });
         });
     },
-});w
+});

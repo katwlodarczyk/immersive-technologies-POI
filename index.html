@@ -4,18 +4,23 @@
 <meta charset="utf-8" />
 <title>AR.js Peak Finder</title>
 <script src="dist/bundle.js"></script>
+<link rel='stylesheet' type='text/css' href='style.css' />
 </head>
 <body>
   <a-scene
-    vr-mode-ui="enabled: false"
-    arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false;'>
-    <a-assets>
-      <a-asset-item id="beer-bottle" src="./models/beer_bottle/scene.gltf"></a-asset-item>
-      <a-asset-item id="coffee" src="./models/coffee/scene.gltf"></a-asset-item>
-      <a-asset-item id="burger" src="./models/burger/scene.gltf"></a-asset-item>
-    </a-assets>
+        vr-mode-ui="enabled: false"
+        arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false;'>
+        <a-assets>
+          <a-asset-item id="beer-bottle" src="./models/beer_bottle/scene.gltf"></a-asset-item>
+          <a-asset-item id="coffee" src="./models/coffee/scene.gltf"></a-asset-item>
+          <a-asset-item id="burger" src="./models/burger/scene.gltf"></a-asset-item>
+        </a-assets>
     <a-camera gps-projected-camera rotation-reader></a-camera>
-    <a-entity terrarium-dem='zoom: 13; url: https://hikar.org/webapp/dem/{z}/{x}/{y}.png' osm3d='url: https://hikar.org/webapp/map/{z}/{x}/{y}.json?outProj=4326' peakfinder></a-entity>
+    <div id="stats">
+      <div id='lat'></div>
+      <div id='lon'></div>
+    </div>
+    <a-entity terrarium-dem='zoom: 12; url: https://hikar.org/webapp/dem/{z}/{x}/{y}.png' osm3d='url: https://hikar.org/webapp/map/{z}/{x}/{y}.json?outProj=4326' geolocate></a-entity>
   </a-scene>
 </body>
 </html>
