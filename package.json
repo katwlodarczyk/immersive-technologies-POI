@@ -9,11 +9,14 @@
   "author": "Kat Wlodarczyk",
   "license": "ISC",
   "dependencies": {
+    "@ar-js-org/ar.js": "^3.3.2-es6-beta-01",
     "aframe": "^1.2.0",
-    "jsfreemaplib": "^0.4.3"
-  },
-  "devDependencies": {
-      "webpack": "^5.0.0",
-      "webpack-cli": "^4.7.0"
-  }
+    "aframe-look-at-component": "^1.0.0",
+    "aframe-osm-3d": "^0.5.1",
+    "node-polyfill-webpack-plugin": "^1.1.4"
+},
+"devDependencies": {
+    "webpack": "5.0.0",
+    "webpack-cli": "^4.9.1"
+}
 }

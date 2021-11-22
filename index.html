@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src='dist/bundle.js'></script>
-<title>POI application - Immersive Technologies</title>
+<meta charset="utf-8" />
+<title>AR.js Peak Finder</title>
+<script src="dist/bundle.js"></script>
 </head>
 <body>
-  <a-scene cursor="rayOrigin:mouse" raycaster="near:0.1; far:10000" geolocate>
-    <a-entity wasd-controls camera id="camera"></a-entity>
-    <a-sky color="skyblue"></a-sky>
-    <a-plane color='green' position='0 0 0' rotation='-90 0 0' width='100' height='100'></a-plane>
+  <a-scene
+    vr-mode-ui="enabled: false"
+    arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false;'>
+    <a-assets>
+      <a-asset-item id="beer-bottle" src="./models/beer_bottle/scene.gltf"></a-asset-item>
+      <a-asset-item id="coffee" src="./models/coffee/scene.gltf"></a-asset-item>
+      <a-asset-item id="burger" src="./models/burger/scene.gltf"></a-asset-item>
+    </a-assets>
+    <a-camera gps-projected-camera rotation-reader></a-camera>
+    <a-entity terrarium-dem='zoom: 13; url: https://hikar.org/webapp/dem/{z}/{x}/{y}.png' osm3d='url: https://hikar.org/webapp/map/{z}/{x}/{y}.json?outProj=4326' peakfinder></a-entity>
   </a-scene>
 </body>
 </html>
