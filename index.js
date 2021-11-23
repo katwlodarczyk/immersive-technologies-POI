@@ -15,8 +15,8 @@ AFRAME.registerComponent("geolocate", {
                     lon: e.detail.position.longitude
                 })
                 // Display current location on screen
-                document.getElementById('lon').innerHTML = "Longitute:"+ e.detail.position.longitude.toFixed(5);
-                document.getElementById('lat').innerHTML = "Latitude:"+e.detail.position.latitude.toFixed(5);
+                document.getElementById('lon').innerHTML = "Longitute: "+ e.detail.position.longitude.toFixed(5);
+                document.getElementById('lat').innerHTML = "Latitude: "+e.detail.position.latitude.toFixed(5);
                 this.loaded = true
             }
         });
