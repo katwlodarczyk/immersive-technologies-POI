@@ -1,6 +1,24 @@
 #stats {
     position: absolute;
-    z-index: 20;
+    z-index: 30;
     color: white;
     padding: 20px 20px;
+}
+
+#info {
+    position: absolute;
+    right: 30px;
+    z-index: 20;
+    color: white;
+    padding: 30px 20px 0 20px;
+
+}
+
+#notification-bar {
+    position: absolute;
+    z-index: 20;
+    background-color: rgb(203, 203, 203);
+    width: 100vw;
+    height: 80px;
+    opacity: 0.2;
 }

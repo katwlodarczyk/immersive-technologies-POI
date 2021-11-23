@@ -7,22 +7,33 @@ import { GoogleProjection } from 'jsfreemaplib';
 AFRAME.registerComponent("geolocate", {
     init: function() {
         this.camera = document.querySelector('[camera]');
+        this.loaded = false;
         window.addEventListener('gps-camera-update-position', async (e) => {
-
-            this.el.setAttribute('terrarium-dem', {
-                lat: e.detail.position.latitude,
-                lon: e.detail.position.longitude
-            })
-            // Display current location on screen
-            document.getElementById('lon').innerHTML = "Longitute:"+ e.detail.position.longitude.toFixed(5);
-            document.getElementById('lat').innerHTML = "Latitude:"+e.detail.position.latitude.toFixed(5);
+            if(this.loaded === false) {
+                this.el.setAttribute('terrarium-dem', {
+                    lat: e.detail.position.latitude,
+                    lon: e.detail.position.longitude
+                })
+                // Display current location on screen
+                document.getElementById('lon').innerHTML = "Longitute:"+ e.detail.position.longitude.toFixed(5);
+                document.getElementById('lat').innerHTML = "Latitude:"+e.detail.position.latitude.toFixed(5);
+                this.loaded = true
+            }
         });
         this.el.addEventListener('elevation-available', e => {
-            this.camera.object3D.position.y = e.detail.elevation;
+            this.camera.object3D.position.y = e.detail.elevation+ 1.6;
         });
 
+        this.el.addEventListener('terrarium-start-update', e => {
+            document.getElementById('info').innerHTML = "Downloading elevation data...";
+        })
+
+        this.el.addEventListener('terrarium-dem-loaded', e => {
+            document.getElementById('info').innerHTML = "Downloading OSM data..";
+        })
 
         this.el.addEventListener('osm-data-loaded', e => {
+            document.getElementById('info').innerHTML = "";
             console.log(e.detail.pois)
             e.detail.pois
                 .forEach ( poi => {
@@ -48,24 +59,43 @@ AFRAME.registerComponent("geolocate", {
                             z: 5
                         })
 
+                        //  add box aka noticeboard
+                        const board = document.createElement('a-entity');
+                        board.setAttribute('position', {
+                            x: 50,
+                            y: 50,
+                            z: 50
+                        })
+                        board.setAttribute('geometry', {
+                            primitive: 'box',
+                            width: 2,
+                            height: 1,
+                        })
+                        board.setAttribute('material', {
+                            color: 'white',
+                            opacity: 0.2
+                        })
+
+
                         // Add the text entity to the compound ...
                         const textEntity = document.createElement('a-entity');
                         textEntity.setAttribute('text', {
                             value: poi.properties.name
                         });
                         textEntity.setAttribute('scale', {
-                            x: 100,
-                            y: 100,
-                            z: 100
+                            x: 1,
+                            y: 1,
+                            z: 1
                         });
                         textEntity.setAttribute('look-at', '[gps-projected-camera]')
                         textEntity.setAttribute('position', {
-                            x: 0,
-                            y: 10,
-                            z: 0,
+                            x: 50,
+                            y: 50,
+                            z: 50,
                         })
                     
-                        pubCompound.appendChild(textEntity);
+                        board.appendChild(textEntity);
+                        pubCompound.appendChild(board);
                         pubCompound.appendChild(bottle);
                         this.el.sceneEl.appendChild(pubCompound);
                     } else if (poi.properties.amenity == 'restaurant') {
@@ -97,9 +127,9 @@ AFRAME.registerComponent("geolocate", {
                         });
                         textEntity.setAttribute('look-at', '[gps-projected-camera]')
                         textEntity.setAttribute('scale', {
-                            x: 1000,
-                            y: 1000,
-                            z: 1000
+                            x: 50,
+                            y: 50,
+                            z: 50,
                         });
                         textEntity.setAttribute('position', {
                             x: 0,
@@ -107,6 +137,24 @@ AFRAME.registerComponent("geolocate", {
                             z: 0,
                         })
                     
+                        //  add box aka noticeboard
+                        const board = document.createElement('a-entity');
+                        board.setAttribute('position', {
+                            x: 50,
+                            y: 50,
+                            z: 50
+                        })
+                        board.setAttribute('geometry', {
+                            primitive: 'box',
+                            width: 2,
+                            height: 1,
+                        })
+                        board.setAttribute('material', {
+                            color: 'white',
+                            opacity: 0.2
+                        })
+
+                        board.appendChild(textEntity);
                         restaurantCompound.appendChild(textEntity);
                         restaurantCompound.appendChild(burger);
                         this.el.sceneEl.appendChild(restaurantCompound);
@@ -139,16 +187,33 @@ AFRAME.registerComponent("geolocate", {
                         });
                         textEntity.setAttribute('look-at', '[gps-projected-camera]')
                         textEntity.setAttribute('scale', {
-                            x: 1000,
-                            y: 1000,
-                            z: 1000
+                            x: 50,
+                            y: 50,
+                            z: 50,
                         });
                         textEntity.setAttribute('position', {
                             x: 0,
                             y: 10,
                             z: 0,
                         })
-                    
+                       //  add box aka noticeboard
+                       const board = document.createElement('a-entity');
+                       board.setAttribute('position', {
+                           x: 50,
+                           y: 50,
+                           z: 50
+                       })
+                       board.setAttribute('geometry', {
+                           primitive: 'box',
+                           width: 2,
+                           height: 1,
+                       })
+                       board.setAttribute('material', {
+                           color: 'white',
+                           opacity: 0.2
+                       })
+
+                        board.appendChild(textEntity);
                         cafeCompound.appendChild(textEntity);
                         cafeCompound.appendChild(coffee);
                         this.el.sceneEl.appendChild(cafeCompound);
