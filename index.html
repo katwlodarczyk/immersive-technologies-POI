@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title>AR.js Peak Finder</title>
+<title>AR Point of Interest - Immersive Technologies</title>
 <script src="dist/bundle.js"></script>
 <link rel='stylesheet' type='text/css' href='style.css' />
 </head>
@@ -15,7 +15,7 @@
           <a-asset-item id="coffee" src="./models/coffee/scene.gltf"></a-asset-item>
           <a-asset-item id="burger" src="./models/burger/scene.gltf"></a-asset-item>
         </a-assets>
-    <a-camera gps-projected-camera rotation-reader></a-camera>
+    <a-camera gps-camera='gpsMinDistance: 5' gps-projected-camera rotation-reader></a-camera>
     <div id="notification-bar">
     </div>
     <div id="info"></div>

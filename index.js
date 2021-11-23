@@ -54,22 +54,22 @@ AFRAME.registerComponent("geolocate", {
                         const bottle = document.createElement('a-entity');
                         bottle.setAttribute('gltf-model', '#beer-bottle');
                         bottle.setAttribute('scale', {
-                            x:5,
-                            y: 5,
-                            z: 5
+                            x:1,
+                            y:1,
+                            z: 1
                         })
 
                         //  add box aka noticeboard
                         const board = document.createElement('a-entity');
                         board.setAttribute('position', {
-                            x: 50,
-                            y: 50,
-                            z: 50
+                            x: 0,
+                            y: 10,
+                            z: 0
                         })
                         board.setAttribute('geometry', {
                             primitive: 'box',
-                            width: 2,
-                            height: 1,
+                            width: 3,
+                            height: 2,
                         })
                         board.setAttribute('material', {
                             color: 'white',
@@ -131,31 +131,31 @@ AFRAME.registerComponent("geolocate", {
                             y: 50,
                             z: 50,
                         });
-                        textEntity.setAttribute('position', {
-                            x: 0,
-                            y: 10,
-                            z: 0,
-                        })
+                    
                     
                         //  add box aka noticeboard
                         const board = document.createElement('a-entity');
                         board.setAttribute('position', {
-                            x: 50,
-                            y: 50,
-                            z: 50
+                            x: 0,
+                            y: 10,
+                            z: 0
                         })
                         board.setAttribute('geometry', {
                             primitive: 'box',
-                            width: 2,
-                            height: 1,
+                            width: 10,
+                            height: 3,
                         })
                         board.setAttribute('material', {
                             color: 'white',
-                            opacity: 0.2
+                            // opacity: 0.3
                         })
-
-                        board.appendChild(textEntity);
-                        restaurantCompound.appendChild(textEntity);
+                        board.setAttribute('text', {
+                            value: poi.properties.name,
+                        
+                        });
+                    
+                        // board.appendChild(textEntity);
+                        restaurantCompound.appendChild(board);
                         restaurantCompound.appendChild(burger);
                         this.el.sceneEl.appendChild(restaurantCompound);
                     } else if (poi.properties.amenity == 'cafe') {
@@ -186,35 +186,37 @@ AFRAME.registerComponent("geolocate", {
                             value: poi.properties.name
                         });
                         textEntity.setAttribute('look-at', '[gps-projected-camera]')
-                        textEntity.setAttribute('scale', {
-                            x: 50,
-                            y: 50,
-                            z: 50,
-                        });
-                        textEntity.setAttribute('position', {
-                            x: 0,
-                            y: 10,
-                            z: 0,
-                        })
+                        // textEntity.setAttribute('scale', {
+                        //     x: 50,
+                        //     y: 50,
+                        //     z: 50,
+                        // });
+                        // textEntity.setAttribute('position', {
+                        //     x: 0,
+                        //     y: 10,
+                        //     z: 0,
+                        // })
                        //  add box aka noticeboard
                        const board = document.createElement('a-entity');
                        board.setAttribute('position', {
-                           x: 50,
-                           y: 50,
-                           z: 50
+                           x: 0,
+                           y: 10,
+                           z: 0
                        })
                        board.setAttribute('geometry', {
                            primitive: 'box',
-                           width: 2,
-                           height: 1,
+                           width: 10,
+                           height: 3,
                        })
                        board.setAttribute('material', {
                            color: 'white',
                            opacity: 0.2
                        })
+                       textEntity.setAttribute('look-at', '[gps-projected-camera]')
+                       
 
                         board.appendChild(textEntity);
-                        cafeCompound.appendChild(textEntity);
+                        cafeCompound.appendChild(board);
                         cafeCompound.appendChild(coffee);
                         this.el.sceneEl.appendChild(cafeCompound);
                     }
