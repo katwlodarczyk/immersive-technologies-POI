@@ -1,9 +1,9 @@
 #stats {
-    width: 95vw;
+    width: 90vw;
     position: absolute;
     z-index: 30;
     color: white;
-    padding: 20px 20px;
+    padding: 15px 20px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -11,7 +11,7 @@
 
 #info {
     position: absolute;
-    bottom: 20px;
+    bottom: 15px;
     margin: 0 auto;
     z-index: 20;
     color: white;
@@ -19,6 +19,7 @@
     width: 90vw;
     display: inline;
     justify-content: center;
+    text-align: center;
 }
 
 #stat-bar {
@@ -26,8 +27,8 @@
     z-index: 20;
     background-color: rgb(203, 203, 203);
     width: 100vw;
-    height: 60px;
-    opacity: 0.2;
+    height: 50px;
+    opacity: 0.3;
 }
 
 #notification-bar {
@@ -37,7 +38,7 @@
     background-color: rgb(203, 203, 203);
     width: 100vw;
     height: 50px;
-    opacity: 0.2;
+    opacity: 0.3;
 }
 
 .noticeboard text{
