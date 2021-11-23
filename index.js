@@ -21,7 +21,7 @@ AFRAME.registerComponent("geolocate", {
             }
         });
         this.el.addEventListener('elevation-available', e => {
-            this.camera.object3D.position.y = e.detail.elevation+ 1.6;
+            this.camera.object3D.position.y = e.detail.elevation+ 2.6;
         });
 
         this.el.addEventListener('terrarium-start-update', e => {
@@ -61,19 +61,26 @@ AFRAME.registerComponent("geolocate", {
 
                         //  add box aka noticeboard
                         const board = document.createElement('a-entity');
+                        board.setAttribute('class', 'noticeboard')
                         board.setAttribute('position', {
                             x: 0,
                             y: 10,
                             z: 0
                         })
                         board.setAttribute('geometry', {
-                            primitive: 'box',
-                            width: 3,
-                            height: 2,
+                            primitive: 'plane',
+                            width: 10,
+                            height: 2
                         })
                         board.setAttribute('material', {
                             color: 'white',
-                            opacity: 0.2
+                            opacity: 0.3
+                        })
+                        board.setAttribute('text', {
+                            value: poi.properties.name,
+                            align: 'center',
+                            color: 'white',
+                            width: 20,
                         })
 
 
@@ -94,7 +101,7 @@ AFRAME.registerComponent("geolocate", {
                             z: 50,
                         })
                     
-                        board.appendChild(textEntity);
+                        // board.appendChild(textEntity);a
                         pubCompound.appendChild(board);
                         pubCompound.appendChild(bottle);
                         this.el.sceneEl.appendChild(pubCompound);
@@ -135,29 +142,32 @@ AFRAME.registerComponent("geolocate", {
                     
                         //  add box aka noticeboard
                         const board = document.createElement('a-entity');
+                        board.setAttribute('class', 'noticeboard')
                         board.setAttribute('position', {
                             x: 0,
                             y: 10,
                             z: 0
                         })
                         board.setAttribute('geometry', {
-                            primitive: 'box',
+                            primitive: 'plane',
                             width: 10,
-                            height: 3,
+                            height: 2
                         })
                         board.setAttribute('material', {
                             color: 'white',
-                            // opacity: 0.3
+                            opacity: 0.3
                         })
                         board.setAttribute('text', {
                             value: poi.properties.name,
-                        
-                        });
+                            align: 'center',
+                            color: 'white',
+                            width: 20,
+                        })
                     
-                        // board.appendChild(textEntity);
                         restaurantCompound.appendChild(board);
                         restaurantCompound.appendChild(burger);
                         this.el.sceneEl.appendChild(restaurantCompound);
+
                     } else if (poi.properties.amenity == 'cafe') {
                         const cafeCompound = document.createElement('a-entity');
                         cafeCompound.setAttribute('look-at', '[gps-projected-camera]')
@@ -186,36 +196,41 @@ AFRAME.registerComponent("geolocate", {
                             value: poi.properties.name
                         });
                         textEntity.setAttribute('look-at', '[gps-projected-camera]')
-                        // textEntity.setAttribute('scale', {
-                        //     x: 50,
-                        //     y: 50,
-                        //     z: 50,
-                        // });
-                        // textEntity.setAttribute('position', {
-                        //     x: 0,
-                        //     y: 10,
-                        //     z: 0,
-                        // })
+                        textEntity.setAttribute('scale', {
+                            x: 50,
+                            y: 50,
+                            z: 50,
+                        });
+                        textEntity.setAttribute('position', {
+                            x: 0,
+                            y: 10,
+                            z: 0,
+                        })
+
                        //  add box aka noticeboard
                        const board = document.createElement('a-entity');
+                       board.setAttribute('class', 'noticeboard')
                        board.setAttribute('position', {
                            x: 0,
                            y: 10,
                            z: 0
                        })
                        board.setAttribute('geometry', {
-                           primitive: 'box',
+                           primitive: 'plane',
                            width: 10,
-                           height: 3,
+                           height: 2
                        })
                        board.setAttribute('material', {
                            color: 'white',
-                           opacity: 0.2
+                           opacity: 0.3
                        })
-                       textEntity.setAttribute('look-at', '[gps-projected-camera]')
-                       
-
-                        board.appendChild(textEntity);
+                       board.setAttribute('text', {
+                           value: poi.properties.name,
+                           align: 'center',
+                           color: 'white',
+                           width: 20,
+                       })
+                        // cafeCompound.appendChild(textEntity);
                         cafeCompound.appendChild(board);
                         cafeCompound.appendChild(coffee);
                         this.el.sceneEl.appendChild(cafeCompound);

@@ -1,24 +1,45 @@
 #stats {
+    width: 95vw;
     position: absolute;
     z-index: 30;
     color: white;
     padding: 20px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 #info {
     position: absolute;
-    right: 30px;
+    bottom: 20px;
+    margin: 0 auto;
     z-index: 20;
     color: white;
     padding: 30px 20px 0 20px;
-
+    width: 90vw;
+    display: inline;
+    justify-content: center;
 }
 
-#notification-bar {
+#stat-bar {
     position: absolute;
     z-index: 20;
     background-color: rgb(203, 203, 203);
     width: 100vw;
-    height: 80px;
+    height: 60px;
     opacity: 0.2;
+}
+
+#notification-bar {
+    position: absolute;
+    bottom: 5px;
+    z-index: 20;
+    background-color: rgb(203, 203, 203);
+    width: 100vw;
+    height: 50px;
+    opacity: 0.2;
+}
+
+.noticeboard text{
+    font-size: 20px
 }
