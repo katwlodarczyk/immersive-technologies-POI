@@ -54,9 +54,9 @@ AFRAME.registerComponent("geolocate", {
                         const bottle = document.createElement('a-entity');
                         bottle.setAttribute('gltf-model', '#beer-bottle');
                         bottle.setAttribute('scale', {
-                            x:1,
-                            y:1,
-                            z: 1
+                            x:0.5,
+                            y:0.5,
+                            z: 0.5
                         })
 
                         //  add box aka noticeboard
@@ -101,7 +101,7 @@ AFRAME.registerComponent("geolocate", {
                             z: 50,
                         })
                     
-                        // board.appendChild(textEntity);a
+                        board.appendChild(textEntity);
                         pubCompound.appendChild(board);
                         pubCompound.appendChild(bottle);
                         this.el.sceneEl.appendChild(pubCompound);
@@ -181,13 +181,13 @@ AFRAME.registerComponent("geolocate", {
                             longitude:poi.geometry.coordinates[0]
                         });
 
-                        // add burger model
+                        // add cup model
                         const coffee = document.createElement('a-entity');
                         coffee.setAttribute('gltf-model', '#coffee');
                         coffee.setAttribute('scale', {
-                            x:50,
-                            y: 50,
-                            z: 50
+                            x:2,
+                            y: 2,
+                            z: 2
                         })
 
                         // Add the text entity to the compound ...

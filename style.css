@@ -32,7 +32,7 @@
 
 #notification-bar {
     position: absolute;
-    bottom: 5px;
+    bottom: 0;
     z-index: 20;
     background-color: rgb(203, 203, 203);
     width: 100vw;

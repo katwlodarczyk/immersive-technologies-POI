@@ -1,0 +1,11 @@
+Model Information:
+* title:	Beer Inekin premium
+* source:	https://sketchfab.com/3d-models/beer-inekin-premium-90f162fa37344b43b84eb956f2040649
+* author:	aurelkillers1 (https://sketchfab.com/aurelkillers1)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Beer Inekin premium" (https://sketchfab.com/3d-models/beer-inekin-premium-90f162fa37344b43b84eb956f2040649) by aurelkillers1 (https://sketchfab.com/aurelkillers1) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
