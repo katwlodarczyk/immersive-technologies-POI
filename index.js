@@ -158,9 +158,9 @@ AFRAME.registerComponent("geolocate", {
                         const coffee = document.createElement('a-entity');
                         coffee.setAttribute('gltf-model', '#coffee');
                         coffee.setAttribute('scale', {
-                            x:4,
-                            y: 4,
-                            z: 4
+                            x:20,
+                            y: 20,
+                            z: 20
                         })
 
                         //  add box aka noticeboard
@@ -168,7 +168,7 @@ AFRAME.registerComponent("geolocate", {
                         board.setAttribute('class', 'noticeboard')
                         board.setAttribute('position', {
                             x: 0,
-                            y: 20,
+                            y: 40,
                             z: 0
                         })
                         board.setAttribute('geometry', {
@@ -413,9 +413,9 @@ AFRAME.registerComponent("geolocate", {
                         const taxi = document.createElement('a-entity');
                         taxi.setAttribute('gltf-model', '#taxi');
                         taxi.setAttribute('scale', {
-                            x:0.5,
-                            y: 0.5,
-                            z: 0.5
+                            x:0.3,
+                            y: 0.3,
+                            z: 0.3
                         })
 
                         //  add box aka noticeboard
