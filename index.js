@@ -2,7 +2,18 @@ import 'aframe';
 import '@ar-js-org/ar.js';
 import 'aframe-look-at-component';
 import 'aframe-osm-3d';
-import { GoogleProjection } from 'jsfreemaplib';
+
+if('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./service-worker.js')
+        .then(registration => {
+            console.log('Registered successfully.');
+        })
+        .catch(e => {
+            console.error(`Service worker registration failed: ${e}`);
+        });    
+} else {
+    alert('Sorry, offline functionality not available, please update your browser!');
+}
 
 AFRAME.registerComponent("geolocate", {
     init: function() {
