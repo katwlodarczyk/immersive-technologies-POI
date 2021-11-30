@@ -140,12 +140,27 @@ AFRAME.registerComponent("geolocate", {
                             color: 'white',
                             opacity: 0.3
                         })
-                        board.setAttribute('text', {
+                        // board.setAttribute('text', {
+                        //     value: poi.properties.name,
+                        //     align: 'center',
+                        //     color: 'white',
+                        //     width: 80,
+                        // })
+
+                        const textEntity = document.createElement('a-entity')
+                        textEntity.setAttribute('text', {
                             value: poi.properties.name,
                             align: 'center',
                             color: 'white',
                             width: 80,
                         })
+                        textEntity.setAttribute('position', {
+                            x:0,
+                            y:0,
+                            z: 2
+                        })
+
+                        board.appendChild(textEntity)
                     
                         if (poi.properties.name) {
                             restaurantCompound.appendChild(board);

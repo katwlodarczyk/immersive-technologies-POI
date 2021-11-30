@@ -1,8 +1,8 @@
 const CACHE_NAME = 'cache';
 const urlsToCache = [
-    'index.html',
-    'js/bundle.js',
-    'css/webapp.css'
+    // 'index.html',
+    // 'js/bundle.js',
+    // 'css/webapp.css'
 ];
 
 self.addEventListener('install', ev=> {
@@ -32,7 +32,7 @@ self.addEventListener('fetch', ev=> {
                 return res;
             }
 
-            if(ev.request.url.indexOf("/webapp/map") != -1) {
+            if(ev.request.url.indexOf("/webapp/map") != -1 || ev.request.url.indexOf("/webapp/dem") != -1) {
                 // If it's a web API URL, fetch the response AND cache it
                 return fetch(ev.request)
                     .then(res2 => {
