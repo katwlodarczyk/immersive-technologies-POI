@@ -54,9 +54,9 @@ AFRAME.registerComponent("geolocate", {
                         const bottle = document.createElement('a-entity');
                         bottle.setAttribute('gltf-model', '#beer-bottle');
                         bottle.setAttribute('scale', {
-                            x: 0.5,
-                            y: 0.5,
-                            z: 0.5
+                            x: 1,
+                            y: 1,
+                            z: 1
                         })
 
                         //  add box aka noticeboard
@@ -69,8 +69,8 @@ AFRAME.registerComponent("geolocate", {
                         })
                         board.setAttribute('geometry', {
                             primitive: 'plane',
-                            width: 10,
-                            height: 2
+                            width: 60,
+                            height: 6
                         })
                         board.setAttribute('material', {
                             color: 'white',
@@ -80,7 +80,7 @@ AFRAME.registerComponent("geolocate", {
                             value: poi.properties.name,
                             align: 'center',
                             color: 'white',
-                            width: 20,
+                            width: 80,
                         })
 
                         if (poi.properties.name) {
@@ -105,9 +105,9 @@ AFRAME.registerComponent("geolocate", {
                         const burger = document.createElement('a-entity');
                         burger.setAttribute('gltf-model', '#burger');
                         burger.setAttribute('scale', {
-                            x:100,
-                            y: 100,
-                            z: 100
+                            x:300,
+                            y: 300,
+                            z: 300
                         })
                     
                     
@@ -116,13 +116,13 @@ AFRAME.registerComponent("geolocate", {
                         board.setAttribute('class', 'noticeboard')
                         board.setAttribute('position', {
                             x: 0,
-                            y: 20,
+                            y: 50,
                             z: 0
                         })
                         board.setAttribute('geometry', {
                             primitive: 'plane',
-                            width: 10,
-                            height: 2
+                            width: 60,
+                            height: 6
                         })
                         board.setAttribute('material', {
                             color: 'white',
@@ -132,7 +132,7 @@ AFRAME.registerComponent("geolocate", {
                             value: poi.properties.name,
                             align: 'center',
                             color: 'white',
-                            width: 20,
+                            width: 80,
                         })
                     
                         if (poi.properties.name) {
@@ -168,13 +168,13 @@ AFRAME.registerComponent("geolocate", {
                         board.setAttribute('class', 'noticeboard')
                         board.setAttribute('position', {
                             x: 0,
-                            y: 40,
+                            y: 100,
                             z: 0
                         })
                         board.setAttribute('geometry', {
                             primitive: 'plane',
-                            width: 10,
-                            height: 2
+                            width: 60,
+                            height: 6
                         })
                         board.setAttribute('material', {
                             color: 'white',
@@ -184,7 +184,7 @@ AFRAME.registerComponent("geolocate", {
                             value: poi.properties.name,
                             align: 'center',
                             color: 'white',
-                            width: 20,
+                            width: 80,
                         })
                 
                         if (poi.properties.name) {
@@ -219,13 +219,13 @@ AFRAME.registerComponent("geolocate", {
                         board.setAttribute('class', 'noticeboard')
                         board.setAttribute('position', {
                             x: 0,
-                            y: 30,
+                            y: 50,
                             z: 0
                         })
                         board.setAttribute('geometry', {
                             primitive: 'plane',
-                            width: 10,
-                            height: 2
+                            width: 60,
+                            height: 6
                         })
                         board.setAttribute('material', {
                             color: 'white',
@@ -235,7 +235,7 @@ AFRAME.registerComponent("geolocate", {
                             value: poi.properties.name,
                             align: 'center',
                             color: 'white',
-                            width: 20,
+                            width: 80,
                         })
                 
                         if (poi.properties.name) {
@@ -265,29 +265,29 @@ AFRAME.registerComponent("geolocate", {
                             z: 10000
                         })
 
-                        //  add box aka noticeboard
-                        const board = document.createElement('a-entity');
-                        board.setAttribute('class', 'noticeboard')
-                        board.setAttribute('position', {
-                            x: 0,
-                            y: 20,
-                            z: 0
-                        })
-                        board.setAttribute('geometry', {
-                            primitive: 'plane',
-                            width: 10,
-                            height: 2
-                        })
-                        board.setAttribute('material', {
-                            color: 'white',
-                            opacity: 0.3
-                        })
-                        board.setAttribute('text', {
-                            value: poi.properties.name,
-                            align: 'center',
-                            color: 'white',
-                            width: 20,
-                        })
+                       //  add box aka noticeboard
+                       const board = document.createElement('a-entity');
+                       board.setAttribute('class', 'noticeboard')
+                       board.setAttribute('position', {
+                           x: 0,
+                           y: 50,
+                           z: 0
+                       })
+                       board.setAttribute('geometry', {
+                           primitive: 'plane',
+                           width: 60,
+                           height: 6
+                       })
+                       board.setAttribute('material', {
+                           color: 'white',
+                           opacity: 0.3
+                       })
+                       board.setAttribute('text', {
+                           value: poi.properties.name,
+                           align: 'center',
+                           color: 'white',
+                           width: 80,
+                       })
                 
                         if (poi.properties.name) {
                             suburbCompound.appendChild(board);
@@ -315,19 +315,18 @@ AFRAME.registerComponent("geolocate", {
                             y: 4,
                             z: 4
                         })
-
                         //  add box aka noticeboard
                         const board = document.createElement('a-entity');
                         board.setAttribute('class', 'noticeboard')
                         board.setAttribute('position', {
                             x: 0,
-                            y: 20,
+                            y: 50,
                             z: 0
                         })
                         board.setAttribute('geometry', {
                             primitive: 'plane',
-                            width: 10,
-                            height: 2
+                            width: 60,
+                            height: 6
                         })
                         board.setAttribute('material', {
                             color: 'white',
@@ -337,7 +336,7 @@ AFRAME.registerComponent("geolocate", {
                             value: poi.properties.name,
                             align: 'center',
                             color: 'white',
-                            width: 20,
+                            width: 80,
                         })
                 
                         if (poi.properties.name) {
@@ -372,13 +371,13 @@ AFRAME.registerComponent("geolocate", {
                         board.setAttribute('class', 'noticeboard')
                         board.setAttribute('position', {
                             x: 0,
-                            y: 20,
+                            y: 50,
                             z: 0
                         })
                         board.setAttribute('geometry', {
                             primitive: 'plane',
-                            width: 10,
-                            height: 2
+                            width: 60,
+                            height: 6
                         })
                         board.setAttribute('material', {
                             color: 'white',
@@ -388,7 +387,7 @@ AFRAME.registerComponent("geolocate", {
                             value: poi.properties.name,
                             align: 'center',
                             color: 'white',
-                            width: 20,
+                            width: 80,
                         })
                 
                         if (poi.properties.name) {
@@ -423,13 +422,13 @@ AFRAME.registerComponent("geolocate", {
                         board.setAttribute('class', 'noticeboard')
                         board.setAttribute('position', {
                             x: 0,
-                            y: 20,
+                            y: 50,
                             z: 0
                         })
                         board.setAttribute('geometry', {
                             primitive: 'plane',
-                            width: 10,
-                            height: 2
+                            width: 60,
+                            height: 6
                         })
                         board.setAttribute('material', {
                             color: 'white',
@@ -439,7 +438,7 @@ AFRAME.registerComponent("geolocate", {
                             value: poi.properties.name,
                             align: 'center',
                             color: 'white',
-                            width: 20,
+                            width: 80,
                         })
                 
                         if (poi.properties.name) {
