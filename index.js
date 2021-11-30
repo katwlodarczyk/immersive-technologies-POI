@@ -168,7 +168,7 @@ AFRAME.registerComponent("geolocate", {
                         board.setAttribute('class', 'noticeboard')
                         board.setAttribute('position', {
                             x: 0,
-                            y: 100,
+                            y: 80,
                             z: 0
                         })
                         board.setAttribute('geometry', {
@@ -209,9 +209,9 @@ AFRAME.registerComponent("geolocate", {
                         const parking = document.createElement('a-entity');
                         parking.setAttribute('gltf-model', '#parking');
                         parking.setAttribute('scale', {
-                            x:20,
-                            y: 20,
-                            z: 20
+                            x:80,
+                            y: 80,
+                            z: 80
                         })
 
                         //  add box aka noticeboard
@@ -219,7 +219,7 @@ AFRAME.registerComponent("geolocate", {
                         board.setAttribute('class', 'noticeboard')
                         board.setAttribute('position', {
                             x: 0,
-                            y: 50,
+                            y: 80,
                             z: 0
                         })
                         board.setAttribute('geometry', {
@@ -361,9 +361,9 @@ AFRAME.registerComponent("geolocate", {
                         const ferry = document.createElement('a-entity');
                         ferry.setAttribute('gltf-model', '#ferry');
                         ferry.setAttribute('scale', {
-                            x:30,
-                            y: 30,
-                            z: 30
+                            x: 120,
+                            y: 120,
+                            z: 120
                         })
 
                         //  add box aka noticeboard
@@ -371,7 +371,7 @@ AFRAME.registerComponent("geolocate", {
                         board.setAttribute('class', 'noticeboard')
                         board.setAttribute('position', {
                             x: 0,
-                            y: 50,
+                            y: 90,
                             z: 0
                         })
                         board.setAttribute('geometry', {
@@ -412,9 +412,9 @@ AFRAME.registerComponent("geolocate", {
                         const taxi = document.createElement('a-entity');
                         taxi.setAttribute('gltf-model', '#taxi');
                         taxi.setAttribute('scale', {
-                            x:0.3,
-                            y: 0.3,
-                            z: 0.3
+                            x:1,
+                            y: 1,
+                            z: 1
                         })
 
                         //  add box aka noticeboard
@@ -422,7 +422,7 @@ AFRAME.registerComponent("geolocate", {
                         board.setAttribute('class', 'noticeboard')
                         board.setAttribute('position', {
                             x: 0,
-                            y: 50,
+                            y: 100,
                             z: 0
                         })
                         board.setAttribute('geometry', {
