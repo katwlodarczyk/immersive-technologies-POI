@@ -50,7 +50,6 @@ AFRAME.registerComponent("geolocate", {
                 .forEach ( poi => {
                     if (poi.properties.amenity == 'pub') {
                         const pubCompound = document.createElement('a-entity');
-                        pubCompound.setAttribute('look-at', '[gps-projected-camera]')
                         pubCompound.setAttribute('position', {
                             x: 0,
                             y: poi.geometry.coordinates[2],
@@ -72,6 +71,7 @@ AFRAME.registerComponent("geolocate", {
 
                         //  add box aka noticeboard
                         const board = document.createElement('a-entity');
+                        board.setAttribute('look-at', '[gps-projected-camera]')
                         board.setAttribute('class', 'noticeboard')
                         board.setAttribute('position', {
                             x: 0,
@@ -101,7 +101,7 @@ AFRAME.registerComponent("geolocate", {
                         this.el.sceneEl.appendChild(pubCompound);
                     } else if (poi.properties.amenity == 'restaurant') {
                         const restaurantCompound = document.createElement('a-entity');
-                        restaurantCompound.setAttribute('look-at', '[gps-projected-camera]')
+                        // restaurantCompound.setAttribute('look-at', '[gps-projected-camera]')
                         restaurantCompound.setAttribute('position', {
                             x: 0,
                             y: poi.geometry.coordinates[2],
@@ -124,6 +124,7 @@ AFRAME.registerComponent("geolocate", {
                     
                         //  add box aka noticeboard
                         const board = document.createElement('a-entity');
+                        board.setAttribute('look-at', '[gps-projected-camera]')
                         board.setAttribute('class', 'noticeboard')
                         board.setAttribute('position', {
                             x: 0,
@@ -154,7 +155,7 @@ AFRAME.registerComponent("geolocate", {
 
                     } else if (poi.properties.amenity == 'cafe') {
                         const cafeCompound = document.createElement('a-entity');
-                        cafeCompound.setAttribute('look-at', '[gps-projected-camera]')
+                        // cafeCompound.setAttribute('look-at', '[gps-projected-camera]')
                         cafeCompound.setAttribute('position', {
                             x: 0,
                             y: poi.geometry.coordinates[2],
@@ -176,6 +177,7 @@ AFRAME.registerComponent("geolocate", {
 
                         //  add box aka noticeboard
                         const board = document.createElement('a-entity');
+                        board.setAttribute('look-at', '[gps-projected-camera]')
                         board.setAttribute('class', 'noticeboard')
                         board.setAttribute('position', {
                             x: 0,
@@ -205,7 +207,7 @@ AFRAME.registerComponent("geolocate", {
                         this.el.sceneEl.appendChild(cafeCompound);
                     } else if (poi.properties.amenity == 'parking_entrance') {
                         const parkingCompound = document.createElement('a-entity');
-                        parkingCompound.setAttribute('look-at', '[gps-projected-camera]')
+                        // parkingCompound.setAttribute('look-at', '[gps-projected-camera]')
                         parkingCompound.setAttribute('position', {
                             x: 0,
                             y: poi.geometry.coordinates[2],
@@ -227,6 +229,7 @@ AFRAME.registerComponent("geolocate", {
 
                         //  add box aka noticeboard
                         const board = document.createElement('a-entity');
+                        board.setAttribute('look-at', '[gps-projected-camera]')
                         board.setAttribute('class', 'noticeboard')
                         board.setAttribute('position', {
                             x: 0,
@@ -256,7 +259,7 @@ AFRAME.registerComponent("geolocate", {
                         this.el.sceneEl.appendChild(parkingCompound);
                     } else if (poi.properties.amenity == ('suburb' || 'city' || 'locality')) {
                         const suburbCompound = document.createElement('a-entity');
-                        suburbCompound.setAttribute('look-at', '[gps-projected-camera]')
+                        // suburbCompound.setAttribute('look-at', '[gps-projected-camera]')
                         suburbCompound.setAttribute('position', {
                             x: 0,
                             y: poi.geometry.coordinates[2],
@@ -278,6 +281,7 @@ AFRAME.registerComponent("geolocate", {
 
                        //  add box aka noticeboard
                        const board = document.createElement('a-entity');
+                       board.setAttribute('look-at', '[gps-projected-camera]')
                        board.setAttribute('class', 'noticeboard')
                        board.setAttribute('position', {
                            x: 0,
@@ -307,7 +311,7 @@ AFRAME.registerComponent("geolocate", {
                         this.el.sceneEl.appendChild(suburbCompound);
                     } else if (poi.properties.amenity == 'telephone') {
                         const telephoneCompound = document.createElement('a-entity');
-                        telephoneCompound.setAttribute('look-at', '[gps-projected-camera]')
+                        // telephoneCompound.setAttribute('look-at', '[gps-projected-camera]')
                         telephoneCompound.setAttribute('position', {
                             x: 0,
                             y: poi.geometry.coordinates[2],
@@ -328,6 +332,7 @@ AFRAME.registerComponent("geolocate", {
                         })
                         //  add box aka noticeboard
                         const board = document.createElement('a-entity');
+                        board.setAttribute('look-at', '[gps-projected-camera]')
                         board.setAttribute('class', 'noticeboard')
                         board.setAttribute('position', {
                             x: 0,
@@ -357,7 +362,7 @@ AFRAME.registerComponent("geolocate", {
                         this.el.sceneEl.appendChild(telephoneCompound);
                     } else if (poi.properties.amenity == 'ferry_terminal') {
                         const ferryCompound = document.createElement('a-entity');
-                        ferryCompound.setAttribute('look-at', '[gps-projected-camera]')
+                        // ferryCompound.setAttribute('look-at', '[gps-projected-camera]')
                         ferryCompound.setAttribute('position', {
                             x: 0,
                             y: poi.geometry.coordinates[2],
@@ -379,6 +384,7 @@ AFRAME.registerComponent("geolocate", {
 
                         //  add box aka noticeboard
                         const board = document.createElement('a-entity');
+                        board.setAttribute('look-at', '[gps-projected-camera]')
                         board.setAttribute('class', 'noticeboard')
                         board.setAttribute('position', {
                             x: 0,
@@ -408,7 +414,7 @@ AFRAME.registerComponent("geolocate", {
                         this.el.sceneEl.appendChild(ferryCompound);
                     } else if (poi.properties.amenity == 'taxi') {
                         const taxiCompound = document.createElement('a-entity');
-                        taxiCompound.setAttribute('look-at', '[gps-projected-camera]')
+                        // taxiCompound.setAttribute('look-at', '[gps-projected-camera]')
                         taxiCompound.setAttribute('position', {
                             x: 0,
                             y: poi.geometry.coordinates[2],
@@ -430,6 +436,7 @@ AFRAME.registerComponent("geolocate", {
 
                         //  add box aka noticeboard
                         const board = document.createElement('a-entity');
+                        board.setAttribute('look-at', '[gps-projected-camera]')
                         board.setAttribute('class', 'noticeboard')
                         board.setAttribute('position', {
                             x: 0,
