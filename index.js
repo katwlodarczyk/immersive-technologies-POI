@@ -21,7 +21,7 @@ AFRAME.registerComponent("geolocate", {
             }
         });
         this.el.addEventListener('elevation-available', e => {
-            this.camera.object3D.position.y = e.detail.elevation+ 2.6;
+            this.camera.object3D.position.y = e.detail.elevation+ 1.6;
         });
 
         this.el.addEventListener('terrarium-start-update', e => {
@@ -54,8 +54,8 @@ AFRAME.registerComponent("geolocate", {
                         const bottle = document.createElement('a-entity');
                         bottle.setAttribute('gltf-model', '#beer-bottle');
                         bottle.setAttribute('scale', {
-                            x:0.5,
-                            y:0.5,
+                            x: 0.5,
+                            y: 0.5,
                             z: 0.5
                         })
 
@@ -64,7 +64,7 @@ AFRAME.registerComponent("geolocate", {
                         board.setAttribute('class', 'noticeboard')
                         board.setAttribute('position', {
                             x: 0,
-                            y: 10,
+                            y: 50,
                             z: 0
                         })
                         board.setAttribute('geometry', {
@@ -83,26 +83,9 @@ AFRAME.registerComponent("geolocate", {
                             width: 20,
                         })
 
-
-                        // Add the text entity to the compound ...
-                        const textEntity = document.createElement('a-entity');
-                        textEntity.setAttribute('text', {
-                            value: poi.properties.name
-                        });
-                        textEntity.setAttribute('scale', {
-                            x: 1,
-                            y: 1,
-                            z: 1
-                        });
-                        textEntity.setAttribute('look-at', '[gps-projected-camera]')
-                        textEntity.setAttribute('position', {
-                            x: 50,
-                            y: 50,
-                            z: 50,
-                        })
-                    
-                        board.appendChild(textEntity);
-                        pubCompound.appendChild(board);
+                        if (poi.properties.name) {
+                            pubCompound.appendChild(board);
+                        }
                         pubCompound.appendChild(bottle);
                         this.el.sceneEl.appendChild(pubCompound);
                     } else if (poi.properties.amenity == 'restaurant') {
@@ -122,22 +105,10 @@ AFRAME.registerComponent("geolocate", {
                         const burger = document.createElement('a-entity');
                         burger.setAttribute('gltf-model', '#burger');
                         burger.setAttribute('scale', {
-                            x:50,
-                            y: 50,
-                            z: 50
+                            x:100,
+                            y: 100,
+                            z: 100
                         })
-
-                        // Add the text entity to the compound ...
-                        const textEntity = document.createElement('a-entity');
-                        textEntity.setAttribute('text', {
-                            value: poi.properties.name
-                        });
-                        textEntity.setAttribute('look-at', '[gps-projected-camera]')
-                        textEntity.setAttribute('scale', {
-                            x: 50,
-                            y: 50,
-                            z: 50,
-                        });
                     
                     
                         //  add box aka noticeboard
@@ -145,7 +116,7 @@ AFRAME.registerComponent("geolocate", {
                         board.setAttribute('class', 'noticeboard')
                         board.setAttribute('position', {
                             x: 0,
-                            y: 10,
+                            y: 20,
                             z: 0
                         })
                         board.setAttribute('geometry', {
@@ -164,7 +135,9 @@ AFRAME.registerComponent("geolocate", {
                             width: 20,
                         })
                     
-                        restaurantCompound.appendChild(board);
+                        if (poi.properties.name) {
+                            restaurantCompound.appendChild(board);
+                        }
                         restaurantCompound.appendChild(burger);
                         this.el.sceneEl.appendChild(restaurantCompound);
 
@@ -185,56 +158,296 @@ AFRAME.registerComponent("geolocate", {
                         const coffee = document.createElement('a-entity');
                         coffee.setAttribute('gltf-model', '#coffee');
                         coffee.setAttribute('scale', {
-                            x:2,
-                            y: 2,
-                            z: 2
+                            x:4,
+                            y: 4,
+                            z: 4
                         })
 
-                        // Add the text entity to the compound ...
-                        const textEntity = document.createElement('a-entity');
-                        textEntity.setAttribute('text', {
-                            value: poi.properties.name
-                        });
-                        textEntity.setAttribute('look-at', '[gps-projected-camera]')
-                        textEntity.setAttribute('scale', {
-                            x: 50,
-                            y: 50,
-                            z: 50,
-                        });
-                        textEntity.setAttribute('position', {
+                        //  add box aka noticeboard
+                        const board = document.createElement('a-entity');
+                        board.setAttribute('class', 'noticeboard')
+                        board.setAttribute('position', {
                             x: 0,
-                            y: 10,
-                            z: 0,
+                            y: 20,
+                            z: 0
                         })
-
-                       //  add box aka noticeboard
-                       const board = document.createElement('a-entity');
-                       board.setAttribute('class', 'noticeboard')
-                       board.setAttribute('position', {
-                           x: 0,
-                           y: 10,
-                           z: 0
-                       })
-                       board.setAttribute('geometry', {
-                           primitive: 'plane',
-                           width: 10,
-                           height: 2
-                       })
-                       board.setAttribute('material', {
-                           color: 'white',
-                           opacity: 0.3
-                       })
-                       board.setAttribute('text', {
-                           value: poi.properties.name,
-                           align: 'center',
-                           color: 'white',
-                           width: 20,
-                       })
-                        // cafeCompound.appendChild(textEntity);
-                        cafeCompound.appendChild(board);
+                        board.setAttribute('geometry', {
+                            primitive: 'plane',
+                            width: 10,
+                            height: 2
+                        })
+                        board.setAttribute('material', {
+                            color: 'white',
+                            opacity: 0.3
+                        })
+                        board.setAttribute('text', {
+                            value: poi.properties.name,
+                            align: 'center',
+                            color: 'white',
+                            width: 20,
+                        })
+                
+                        if (poi.properties.name) {
+                            cafeCompound.appendChild(board);
+                        }
                         cafeCompound.appendChild(coffee);
                         this.el.sceneEl.appendChild(cafeCompound);
-                    }
+                    } else if (poi.properties.amenity == 'parking_entrance') {
+                        const parkingCompound = document.createElement('a-entity');
+                        parkingCompound.setAttribute('look-at', '[gps-projected-camera]')
+                        parkingCompound.setAttribute('position', {
+                            x: 0,
+                            y: poi.geometry.coordinates[2],
+                            z: 0,
+                        })
+                        parkingCompound.setAttribute('gps-projected-entity-place', {
+                            latitude:poi.geometry.coordinates[1],
+                            longitude:poi.geometry.coordinates[0]
+                        });
+
+                        // add parking sing model
+                        const parking = document.createElement('a-entity');
+                        parking.setAttribute('gltf-model', '#parking');
+                        parking.setAttribute('scale', {
+                            x:20,
+                            y: 20,
+                            z: 20
+                        })
+
+                        //  add box aka noticeboard
+                        const board = document.createElement('a-entity');
+                        board.setAttribute('class', 'noticeboard')
+                        board.setAttribute('position', {
+                            x: 0,
+                            y: 30,
+                            z: 0
+                        })
+                        board.setAttribute('geometry', {
+                            primitive: 'plane',
+                            width: 10,
+                            height: 2
+                        })
+                        board.setAttribute('material', {
+                            color: 'white',
+                            opacity: 0.3
+                        })
+                        board.setAttribute('text', {
+                            value: poi.properties.name,
+                            align: 'center',
+                            color: 'white',
+                            width: 20,
+                        })
+                
+                        if (poi.properties.name) {
+                            parkingCompound.appendChild(board);
+                        }
+                        parkingCompound.appendChild(parking);
+                        this.el.sceneEl.appendChild(parkingCompound);
+                    } else if (poi.properties.amenity == ('suburb' || 'city' || 'locality')) {
+                        const suburbCompound = document.createElement('a-entity');
+                        suburbCompound.setAttribute('look-at', '[gps-projected-camera]')
+                        suburbCompound.setAttribute('position', {
+                            x: 0,
+                            y: poi.geometry.coordinates[2],
+                            z: 0,
+                        })
+                        suburbCompound.setAttribute('gps-projected-entity-place', {
+                            latitude:poi.geometry.coordinates[1],
+                            longitude:poi.geometry.coordinates[0]
+                        });
+
+                        // add map marker model
+                        const marker = document.createElement('a-entity');
+                        marker.setAttribute('gltf-model', '#marker');
+                        marker.setAttribute('scale', {
+                            x:10000,
+                            y: 10000,
+                            z: 10000
+                        })
+
+                        //  add box aka noticeboard
+                        const board = document.createElement('a-entity');
+                        board.setAttribute('class', 'noticeboard')
+                        board.setAttribute('position', {
+                            x: 0,
+                            y: 20,
+                            z: 0
+                        })
+                        board.setAttribute('geometry', {
+                            primitive: 'plane',
+                            width: 10,
+                            height: 2
+                        })
+                        board.setAttribute('material', {
+                            color: 'white',
+                            opacity: 0.3
+                        })
+                        board.setAttribute('text', {
+                            value: poi.properties.name,
+                            align: 'center',
+                            color: 'white',
+                            width: 20,
+                        })
+                
+                        if (poi.properties.name) {
+                            suburbCompound.appendChild(board);
+                        }
+                        suburbCompound.appendChild(marker);
+                        this.el.sceneEl.appendChild(suburbCompound);
+                    } else if (poi.properties.amenity == 'telephone') {
+                        const telephoneCompound = document.createElement('a-entity');
+                        telephoneCompound.setAttribute('look-at', '[gps-projected-camera]')
+                        telephoneCompound.setAttribute('position', {
+                            x: 0,
+                            y: poi.geometry.coordinates[2],
+                            z: 0,
+                        })
+                        telephoneCompound.setAttribute('gps-projected-entity-place', {
+                            latitude:poi.geometry.coordinates[1],
+                            longitude:poi.geometry.coordinates[0]
+                        });
+
+                        // add map marker model
+                        const telephone = document.createElement('a-entity');
+                        telephone.setAttribute('gltf-model', '#marker');
+                        telephone.setAttribute('scale', {
+                            x:4,
+                            y: 4,
+                            z: 4
+                        })
+
+                        //  add box aka noticeboard
+                        const board = document.createElement('a-entity');
+                        board.setAttribute('class', 'noticeboard')
+                        board.setAttribute('position', {
+                            x: 0,
+                            y: 20,
+                            z: 0
+                        })
+                        board.setAttribute('geometry', {
+                            primitive: 'plane',
+                            width: 10,
+                            height: 2
+                        })
+                        board.setAttribute('material', {
+                            color: 'white',
+                            opacity: 0.3
+                        })
+                        board.setAttribute('text', {
+                            value: poi.properties.name,
+                            align: 'center',
+                            color: 'white',
+                            width: 20,
+                        })
+                
+                        if (poi.properties.name) {
+                            telephoneCompound.appendChild(board);
+                        }
+                        telephoneCompound.appendChild(telephone);
+                        this.el.sceneEl.appendChild(telephoneCompound);
+                    } else if (poi.properties.amenity == 'ferry_terminal') {
+                        const ferryCompound = document.createElement('a-entity');
+                        ferryCompound.setAttribute('look-at', '[gps-projected-camera]')
+                        ferryCompound.setAttribute('position', {
+                            x: 0,
+                            y: poi.geometry.coordinates[2],
+                            z: 0,
+                        })
+                        ferryCompound.setAttribute('gps-projected-entity-place', {
+                            latitude:poi.geometry.coordinates[1],
+                            longitude:poi.geometry.coordinates[0]
+                        });
+
+                        // add map marker model
+                        const ferry = document.createElement('a-entity');
+                        ferry.setAttribute('gltf-model', '#ferry');
+                        ferry.setAttribute('scale', {
+                            x:30,
+                            y: 30,
+                            z: 30
+                        })
+
+                        //  add box aka noticeboard
+                        const board = document.createElement('a-entity');
+                        board.setAttribute('class', 'noticeboard')
+                        board.setAttribute('position', {
+                            x: 0,
+                            y: 20,
+                            z: 0
+                        })
+                        board.setAttribute('geometry', {
+                            primitive: 'plane',
+                            width: 10,
+                            height: 2
+                        })
+                        board.setAttribute('material', {
+                            color: 'white',
+                            opacity: 0.3
+                        })
+                        board.setAttribute('text', {
+                            value: poi.properties.name,
+                            align: 'center',
+                            color: 'white',
+                            width: 20,
+                        })
+                
+                        if (poi.properties.name) {
+                            ferryCompound.appendChild(board);
+                        }
+                        ferryCompound.appendChild(ferry);
+                        this.el.sceneEl.appendChild(ferryCompound);
+                    } else if (poi.properties.amenity == 'taxi') {
+                        const taxiCompound = document.createElement('a-entity');
+                        taxiCompound.setAttribute('look-at', '[gps-projected-camera]')
+                        taxiCompound.setAttribute('position', {
+                            x: 0,
+                            y: poi.geometry.coordinates[2],
+                            z: 0,
+                        })
+                        taxiCompound.setAttribute('gps-projected-entity-place', {
+                            latitude:poi.geometry.coordinates[1],
+                            longitude:poi.geometry.coordinates[0]
+                        });
+
+                        // add map marker model
+                        const taxi = document.createElement('a-entity');
+                        taxi.setAttribute('gltf-model', '#taxi');
+                        taxi.setAttribute('scale', {
+                            x:0.5,
+                            y: 0.5,
+                            z: 0.5
+                        })
+
+                        //  add box aka noticeboard
+                        const board = document.createElement('a-entity');
+                        board.setAttribute('class', 'noticeboard')
+                        board.setAttribute('position', {
+                            x: 0,
+                            y: 20,
+                            z: 0
+                        })
+                        board.setAttribute('geometry', {
+                            primitive: 'plane',
+                            width: 10,
+                            height: 2
+                        })
+                        board.setAttribute('material', {
+                            color: 'white',
+                            opacity: 0.3
+                        })
+                        board.setAttribute('text', {
+                            value: poi.properties.name,
+                            align: 'center',
+                            color: 'white',
+                            width: 20,
+                        })
+                
+                        if (poi.properties.name) {
+                            taxiCompound.appendChild(board);
+                        }
+                        taxiCompound.appendChild(taxi);
+                        this.el.sceneEl.appendChild(taxiCompound);
+                    }        
                 
             });
         });

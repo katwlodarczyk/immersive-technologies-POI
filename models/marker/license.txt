@@ -1,0 +1,11 @@
+Model Information:
+* title:	MarieS-Marker
+* source:	https://sketchfab.com/3d-models/maries-marker-c94bb25528ca4d3288cd278be03479ad
+* author:	msmith7 (https://sketchfab.com/msmith7)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "MarieS-Marker" (https://sketchfab.com/3d-models/maries-marker-c94bb25528ca4d3288cd278be03479ad) by msmith7 (https://sketchfab.com/msmith7) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
