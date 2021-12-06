@@ -575,8 +575,10 @@ AFRAME.registerComponent("clicker", {
     },
     init: function() {
         this.el.addEventListener('click', e=> {
-            alert(`Opening ${this.data.name} website`)
-            window.open(`${this.data.website}`, '_blank')
+            const r = confirm(`Would you like to open ${this.data.name} website?`)
+            if (r == true) {
+                window.open(`${this.data.website}`, '_blank')
+            }
         });
     }
 });
