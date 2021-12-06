@@ -11,7 +11,7 @@
 
 #info {
     position: absolute;
-    bottom: 15px;
+    bottom: 30px;
     margin: 0 auto;
     z-index: 20;
     color: white;
@@ -37,7 +37,7 @@
     z-index: 20;
     background-color: rgb(203, 203, 203);
     width: 100vw;
-    height: 50px;
+    height: 70px;
     opacity: 0.3;
 }
 
