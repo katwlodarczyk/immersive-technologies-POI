@@ -19,6 +19,7 @@ AFRAME.registerComponent("geolocate", {
     init: function() {
         this.camera = document.querySelector('[camera]');
         this.loaded = false;
+        document.getElementById('selectType').style.visibility = "hidden" 
         window.addEventListener('gps-camera-update-position', async (e) => {
             if(this.loaded === false) {
                 this.el.setAttribute('terrarium-dem', {
@@ -45,6 +46,7 @@ AFRAME.registerComponent("geolocate", {
 
         this.el.addEventListener('osm-data-loaded', e => {
             document.getElementById('info').innerHTML = "";
+            document.getElementById('selectType').style.visibility = "visible" 
             console.log(e.detail.pois)
             e.detail.pois
                 .forEach ( poi => {
@@ -111,10 +113,19 @@ AFRAME.registerComponent("geolocate", {
                             pubCompound.appendChild(board);
                         }
                         pubCompound.appendChild(bottle);
+
                         this.el.sceneEl.appendChild(pubCompound);
+
+                        const pubCheckbox = document.querySelector('input[value="pubs"]')
+                        pubCheckbox.addEventListener('change', () => {
+                            if(pubCheckbox.checked) {
+                                pubCompound.object3D.visible = true
+                            } else {
+                                pubCompound.object3D.visible = false
+                            }
+                        })
                     } else if (poi.properties.amenity == 'restaurant') {
                         const restaurantCompound = document.createElement('a-entity');
-                        // restaurantCompound.setAttribute('look-at', '[gps-projected-camera]')
                         restaurantCompound.setAttribute('position', {
                             x: 0,
                             y: poi.geometry.coordinates[2],
@@ -170,7 +181,6 @@ AFRAME.registerComponent("geolocate", {
                         board.appendChild(textEntity)
                     
                         if (poi.properties.website) {
-                            console.log(poi.properties)
                             restaurantCompound.setAttribute('clicker', {name:poi.properties.name, website: poi.properties.website});
                         }
                         if (poi.properties.name) {
@@ -179,6 +189,14 @@ AFRAME.registerComponent("geolocate", {
                         restaurantCompound.appendChild(burger);
                         this.el.sceneEl.appendChild(restaurantCompound);
 
+                        const restaurantCheckbox = document.querySelector('input[value="restaurants"]')
+                        restaurantCheckbox.addEventListener('change', () => {
+                            if(restaurantCheckbox.checked) {
+                                restaurantCompound.object3D.visible = true
+                            } else {
+                                restaurantCompound.object3D.visible = false
+                            }
+                        })
                     } else if (poi.properties.amenity == 'cafe') {
                         const cafeCompound = document.createElement('a-entity');
                         // cafeCompound.setAttribute('look-at', '[gps-projected-camera]')
@@ -244,6 +262,16 @@ AFRAME.registerComponent("geolocate", {
                         }
                         cafeCompound.appendChild(coffee);
                         this.el.sceneEl.appendChild(cafeCompound);
+
+                        const cafeCheckbox = document.querySelector('input[value="cafe"]')
+                        cafeCheckbox.addEventListener('change', () => {
+                            if(cafeCheckbox.checked) {
+                                cafeCompound.object3D.visible = true
+                            } else {
+                                cafeCompound.object3D.visible = false
+                            }
+                        })
+
                     } else if (poi.properties.amenity == 'parking_entrance') {
                         const parkingCompound = document.createElement('a-entity');
                         parkingCompound.setAttribute('look-at', '[gps-projected-camera]')
@@ -366,6 +394,16 @@ AFRAME.registerComponent("geolocate", {
                         }
                         suburbCompound.appendChild(marker);
                         this.el.sceneEl.appendChild(suburbCompound);
+
+                        const localityCheckbox = document.querySelector('input[value="locality"]')
+                        localityCheckbox.addEventListener('change', () => {
+                            if(localityCheckbox.checked) {
+                                suburbCompound.object3D.visible = true
+                            } else {
+                                suburbCompound.object3D.visible = false
+                            }
+                        })
+
                     } 
                     // else if (poi.properties.amenity == 'telephone') {
                     //     const telephoneCompound = document.createElement('a-entity');

@@ -9,7 +9,7 @@
     justify-content: space-between;
 }
 
-#info {
+#info, #selectType {
     position: absolute;
     bottom: 30px;
     margin: 0 auto;

@@ -39,6 +39,19 @@
     <div id="notification-bar">
     </div>
     <div id="info"></div>
+    <div id="selectType">
+      <input type="checkbox" id="pubs" name="pubs" value="pubs" checked>
+      <label for="pubs">Pubs</label>
+
+      <input type="checkbox" id="restaurants" name="restaurants" value="restaurants" checked>
+      <label for="restaurants">Restaurants</label>
+
+      <input type="checkbox" id="cafe" name="cafe" value="cafe" checked>
+      <label for="cafe">Cafes</label>
+
+      <input type="checkbox" id="locality" name="locality" value="locality" checked>
+      <label for="locality">Locality</label>
+    </div>
     <a-entity terrarium-dem='zoom: 15; url: https://hikar.org/webapp/dem/{z}/{x}/{y}.png' osm3d='url: https://hikar.org/webapp/map/{z}/{x}/{y}.poi.json?outProj=4326' geolocate></a-entity>
   </a-scene>
 </body>
