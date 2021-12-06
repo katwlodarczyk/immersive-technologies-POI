@@ -24,6 +24,14 @@ To install app on your desktop, click on the button on the address bar and click
 
 ![alt text](./screenshots/2.jpg)
 
+#
+
+You can filter which type of POI you would like to explore by checking/unchecking the speciffic type:
+
+![alt text](./screenshots/3.jpg)
+
+#
+
 The project is using following 3D Models: 
 
 - "Beer Bottle" (https://skfb.ly/6SKTV) by gelmi.com.br is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
