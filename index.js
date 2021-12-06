@@ -87,12 +87,21 @@ AFRAME.registerComponent("geolocate", {
                             color: 'white',
                             opacity: 0.3
                         })
-                        board.setAttribute('text', {
+                       
+                        const textEntity = document.createElement('a-entity')
+                        textEntity.setAttribute('text', {
                             value: poi.properties.name,
                             align: 'center',
                             color: 'white',
                             width: 80,
                         })
+                        textEntity.setAttribute('position', {
+                            x:0,
+                            y:0,
+                            z: 5
+                        })
+
+                        board.appendChild(textEntity)
 
                         if (poi.properties.name) {
                             pubCompound.appendChild(board);
@@ -140,12 +149,6 @@ AFRAME.registerComponent("geolocate", {
                             color: 'white',
                             opacity: 0.3
                         })
-                        // board.setAttribute('text', {
-                        //     value: poi.properties.name,
-                        //     align: 'center',
-                        //     color: 'white',
-                        //     width: 80,
-                        // })
 
                         const textEntity = document.createElement('a-entity')
                         textEntity.setAttribute('text', {
@@ -157,7 +160,7 @@ AFRAME.registerComponent("geolocate", {
                         textEntity.setAttribute('position', {
                             x:0,
                             y:0,
-                            z: 2
+                            z: 5
                         })
 
                         board.appendChild(textEntity)
@@ -208,12 +211,21 @@ AFRAME.registerComponent("geolocate", {
                             color: 'white',
                             opacity: 0.3
                         })
-                        board.setAttribute('text', {
+
+                        const textEntity = document.createElement('a-entity')
+                        textEntity.setAttribute('text', {
                             value: poi.properties.name,
                             align: 'center',
                             color: 'white',
                             width: 80,
                         })
+                        textEntity.setAttribute('position', {
+                            x:0,
+                            y:0,
+                            z: 5
+                        })
+
+                        board.appendChild(textEntity)
                 
                         if (poi.properties.name) {
                             cafeCompound.appendChild(board);
@@ -237,9 +249,9 @@ AFRAME.registerComponent("geolocate", {
                         const parking = document.createElement('a-entity');
                         parking.setAttribute('gltf-model', '#parking');
                         parking.setAttribute('scale', {
-                            x:80,
-                            y: 80,
-                            z: 80
+                            x:1,
+                            y: 1,
+                            z: 1
                         })
 
                         //  add box aka noticeboard
@@ -260,12 +272,21 @@ AFRAME.registerComponent("geolocate", {
                             color: 'white',
                             opacity: 0.3
                         })
-                        board.setAttribute('text', {
+                       
+                        const textEntity = document.createElement('a-entity')
+                        textEntity.setAttribute('text', {
                             value: poi.properties.name,
                             align: 'center',
                             color: 'white',
                             width: 80,
                         })
+                        textEntity.setAttribute('position', {
+                            x:0,
+                            y:0,
+                            z: 5
+                        })
+
+                        board.appendChild(textEntity)
                 
                         if (poi.properties.name) {
                             parkingCompound.appendChild(board);
@@ -312,12 +333,21 @@ AFRAME.registerComponent("geolocate", {
                            color: 'white',
                            opacity: 0.3
                        })
-                       board.setAttribute('text', {
-                           value: poi.properties.name,
-                           align: 'center',
-                           color: 'white',
-                           width: 80,
-                       })
+
+                    const textEntity = document.createElement('a-entity')
+                    textEntity.setAttribute('text', {
+                        value: poi.properties.name,
+                        align: 'center',
+                        color: 'white',
+                        width: 80,
+                    })
+                    textEntity.setAttribute('position', {
+                        x:0,
+                        y:0,
+                        z: 5
+                    })
+
+                    board.appendChild(textEntity)
                 
                         if (poi.properties.name) {
                             suburbCompound.appendChild(board);
@@ -363,12 +393,26 @@ AFRAME.registerComponent("geolocate", {
                             color: 'white',
                             opacity: 0.3
                         })
-                        board.setAttribute('text', {
+                        // board.setAttribute('text', {
+                        //     value: poi.properties.name,
+                        //     align: 'center',
+                        //     color: 'white',
+                        //     width: 80,
+                        // })
+                        const textEntity = document.createElement('a-entity')
+                        textEntity.setAttribute('text', {
                             value: poi.properties.name,
                             align: 'center',
                             color: 'white',
                             width: 80,
                         })
+                        textEntity.setAttribute('position', {
+                            x:0,
+                            y:0,
+                            z: 5
+                        })
+
+                        board.appendChild(textEntity)
                 
                         if (poi.properties.name) {
                             telephoneCompound.appendChild(board);
@@ -415,12 +459,21 @@ AFRAME.registerComponent("geolocate", {
                             color: 'white',
                             opacity: 0.3
                         })
-                        board.setAttribute('text', {
+                       
+                        const textEntity = document.createElement('a-entity')
+                        textEntity.setAttribute('text', {
                             value: poi.properties.name,
                             align: 'center',
                             color: 'white',
                             width: 80,
                         })
+                        textEntity.setAttribute('position', {
+                            x:0,
+                            y:0,
+                            z: 5
+                        })
+
+                        board.appendChild(textEntity)
                 
                         if (poi.properties.name) {
                             ferryCompound.appendChild(board);
@@ -467,12 +520,21 @@ AFRAME.registerComponent("geolocate", {
                             color: 'white',
                             opacity: 0.3
                         })
-                        board.setAttribute('text', {
+                        
+                        const textEntity = document.createElement('a-entity')
+                        textEntity.setAttribute('text', {
                             value: poi.properties.name,
                             align: 'center',
                             color: 'white',
                             width: 80,
                         })
+                        textEntity.setAttribute('position', {
+                            x:0,
+                            y:0,
+                            z: 5
+                        })
+
+                        board.appendChild(textEntity)
                 
                         if (poi.properties.name) {
                             taxiCompound.appendChild(board);

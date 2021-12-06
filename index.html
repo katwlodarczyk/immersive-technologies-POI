@@ -18,7 +18,7 @@
           <a-asset-item id="beer-bottle" src="./models/beer/scene.gltf"></a-asset-item>
           <a-asset-item id="coffee" src="./models/low-poly_coffee_cup/scene.gltf"></a-asset-item>
           <a-asset-item id="burger" src="./models/cheese_burger/scene.gltf"></a-asset-item>
-          <a-asset-item id="parking" src="./models/parking/scene.gltf"></a-asset-item>
+          <a-asset-item id="parking" src="./models/parking_sign/scene.gltf"></a-asset-item>
           <a-asset-item id="marker" src="./models/point_marker/scene.gltf"></a-asset-item>
           <a-asset-item id="telephone" src="./models/telephone/scene.gltf"></a-asset-item>
           <a-asset-item id="ferry" src="./models/ferry/scene.gltf"></a-asset-item>
@@ -35,7 +35,7 @@
     <div id="notification-bar">
     </div>
     <div id="info"></div>
-    <a-entity terrarium-dem='zoom: 15; url: https://hikar.org/webapp/dem/{z}/{x}/{y}.png' osm3d='url: https://hikar.org/webapp/map/{z}/{x}/{y}.json?outProj=4326' geolocate></a-entity>
+    <a-entity terrarium-dem='zoom: 15; url: https://hikar.org/webapp/dem/{z}/{x}/{y}.png' osm3d='url: https://hikar.org/webapp/map/{z}/{x}/{y}.json?outProj=4326; emitRawData:true' geolocate></a-entity>
   </a-scene>
 </body>
 </html>

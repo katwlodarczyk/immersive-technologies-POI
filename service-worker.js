@@ -12,7 +12,7 @@ self.addEventListener('install', ev=> {
         caches.open(CACHE_NAME)
             .then(cache=> {
                 console.log(`Opened cache ${cache}`);
-                return cache.addAll(urlsToCache);
+                // return cache.addAll(urlsToCache);
             })
     );
 });
@@ -33,7 +33,6 @@ self.addEventListener('fetch', ev=> {
             }
 
             if(ev.request.url.indexOf("/webapp/map") != -1 || ev.request.url.indexOf("/webapp/dem") != -1) {
-                // If it's a web API URL, fetch the response AND cache it
                 return fetch(ev.request)
                     .then(res2 => {
                         console.log("Caching as matches pattern");
@@ -43,7 +42,6 @@ self.addEventListener('fetch', ev=> {
                                 return res2;
                             });
                     });
-            // If not, simply fetch the response
             } else {
                 return fetch(ev.request);
             }
