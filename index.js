@@ -75,7 +75,7 @@ AFRAME.registerComponent("geolocate", {
                         board.setAttribute('class', 'noticeboard')
                         board.setAttribute('position', {
                             x: 0,
-                            y: 50,
+                            y: 100,
                             z: 0
                         })
                         board.setAttribute('geometry', {
@@ -103,6 +103,10 @@ AFRAME.registerComponent("geolocate", {
 
                         board.appendChild(textEntity)
 
+                        if (poi.properties.website) {
+                            console.log(poi.properties)
+                            pubCompound.setAttribute('clicker', {name:poi.properties.name, website: poi.properties.website});
+                        }
                         if (poi.properties.name) {
                             pubCompound.appendChild(board);
                         }
@@ -165,6 +169,10 @@ AFRAME.registerComponent("geolocate", {
 
                         board.appendChild(textEntity)
                     
+                        if (poi.properties.website) {
+                            console.log(poi.properties)
+                            restaurantCompound.setAttribute('clicker', {name:poi.properties.name, website: poi.properties.website});
+                        }
                         if (poi.properties.name) {
                             restaurantCompound.appendChild(board);
                         }
@@ -226,7 +234,11 @@ AFRAME.registerComponent("geolocate", {
                         })
 
                         board.appendChild(textEntity)
+                        cafeCompound.setAttribute('clicker', {name:poi.properties.name, website: poi.properties.website});
                 
+                        if (poi.properties.website) {
+                            cafeCompound.setAttribute('clicker', {name:poi.properties.name, website: poi.properties.website});
+                        }
                         if (poi.properties.name) {
                             cafeCompound.appendChild(board);
                         }
@@ -234,7 +246,7 @@ AFRAME.registerComponent("geolocate", {
                         this.el.sceneEl.appendChild(cafeCompound);
                     } else if (poi.properties.amenity == 'parking_entrance') {
                         const parkingCompound = document.createElement('a-entity');
-                        // parkingCompound.setAttribute('look-at', '[gps-projected-camera]')
+                        parkingCompound.setAttribute('look-at', '[gps-projected-camera]')
                         parkingCompound.setAttribute('position', {
                             x: 0,
                             y: poi.geometry.coordinates[2],
@@ -256,7 +268,7 @@ AFRAME.registerComponent("geolocate", {
 
                         //  add box aka noticeboard
                         const board = document.createElement('a-entity');
-                        board.setAttribute('look-at', '[gps-projected-camera]')
+
                         board.setAttribute('class', 'noticeboard')
                         board.setAttribute('position', {
                             x: 0,
@@ -354,196 +366,217 @@ AFRAME.registerComponent("geolocate", {
                         }
                         suburbCompound.appendChild(marker);
                         this.el.sceneEl.appendChild(suburbCompound);
-                    } else if (poi.properties.amenity == 'telephone') {
-                        const telephoneCompound = document.createElement('a-entity');
-                        // telephoneCompound.setAttribute('look-at', '[gps-projected-camera]')
-                        telephoneCompound.setAttribute('position', {
-                            x: 0,
-                            y: poi.geometry.coordinates[2],
-                            z: 0,
-                        })
-                        telephoneCompound.setAttribute('gps-projected-entity-place', {
-                            latitude:poi.geometry.coordinates[1],
-                            longitude:poi.geometry.coordinates[0]
-                        });
+                    } 
+                    // else if (poi.properties.amenity == 'telephone') {
+                    //     const telephoneCompound = document.createElement('a-entity');
+                    //     // telephoneCompound.setAttribute('look-at', '[gps-projected-camera]')
+                    //     telephoneCompound.setAttribute('position', {
+                    //         x: 0,
+                    //         y: poi.geometry.coordinates[2],
+                    //         z: 0,
+                    //     })
+                    //     telephoneCompound.setAttribute('gps-projected-entity-place', {
+                    //         latitude:poi.geometry.coordinates[1],
+                    //         longitude:poi.geometry.coordinates[0]
+                    //     });
 
-                        // add map marker model
-                        const telephone = document.createElement('a-entity');
-                        telephone.setAttribute('gltf-model', '#marker');
-                        telephone.setAttribute('scale', {
-                            x:4,
-                            y: 4,
-                            z: 4
-                        })
-                        //  add box aka noticeboard
-                        const board = document.createElement('a-entity');
-                        board.setAttribute('look-at', '[gps-projected-camera]')
-                        board.setAttribute('class', 'noticeboard')
-                        board.setAttribute('position', {
-                            x: 0,
-                            y: 50,
-                            z: 0
-                        })
-                        board.setAttribute('geometry', {
-                            primitive: 'plane',
-                            width: 60,
-                            height: 6
-                        })
-                        board.setAttribute('material', {
-                            color: 'white',
-                            opacity: 0.3
-                        })
-                        // board.setAttribute('text', {
-                        //     value: poi.properties.name,
-                        //     align: 'center',
-                        //     color: 'white',
-                        //     width: 80,
-                        // })
-                        const textEntity = document.createElement('a-entity')
-                        textEntity.setAttribute('text', {
-                            value: poi.properties.name,
-                            align: 'center',
-                            color: 'white',
-                            width: 80,
-                        })
-                        textEntity.setAttribute('position', {
-                            x:0,
-                            y:0,
-                            z: 5
-                        })
+                    //     // add map marker model
+                    //     const telephone = document.createElement('a-entity');
+                    //     telephone.setAttribute('gltf-model', '#marker');
+                    //     telephone.setAttribute('scale', {
+                    //         x:4,
+                    //         y: 4,
+                    //         z: 4
+                    //     })
+                    //     //  add box aka noticeboard
+                    //     const board = document.createElement('a-entity');
+                    //     board.setAttribute('look-at', '[gps-projected-camera]')
+                    //     board.setAttribute('class', 'noticeboard')
+                    //     board.setAttribute('position', {
+                    //         x: 0,
+                    //         y: 50,
+                    //         z: 0
+                    //     })
+                    //     board.setAttribute('geometry', {
+                    //         primitive: 'plane',
+                    //         width: 60,
+                    //         height: 6
+                    //     })
+                    //     board.setAttribute('material', {
+                    //         color: 'white',
+                    //         opacity: 0.3
+                    //     })
+                    //     // board.setAttribute('text', {
+                    //     //     value: poi.properties.name,
+                    //     //     align: 'center',
+                    //     //     color: 'white',
+                    //     //     width: 80,
+                    //     // })
+                    //     const textEntity = document.createElement('a-entity')
+                    //     textEntity.setAttribute('text', {
+                    //         value: poi.properties.name,
+                    //         align: 'center',
+                    //         color: 'white',
+                    //         width: 80,
+                    //     })
+                    //     textEntity.setAttribute('position', {
+                    //         x:0,
+                    //         y:0,
+                    //         z: 5
+                    //     })
 
-                        board.appendChild(textEntity)
+                    //     board.appendChild(textEntity)
                 
-                        if (poi.properties.name) {
-                            telephoneCompound.appendChild(board);
-                        }
-                        telephoneCompound.appendChild(telephone);
-                        this.el.sceneEl.appendChild(telephoneCompound);
-                    } else if (poi.properties.amenity == 'ferry_terminal') {
-                        const ferryCompound = document.createElement('a-entity');
-                        // ferryCompound.setAttribute('look-at', '[gps-projected-camera]')
-                        ferryCompound.setAttribute('position', {
-                            x: 0,
-                            y: poi.geometry.coordinates[2],
-                            z: 0,
-                        })
-                        ferryCompound.setAttribute('gps-projected-entity-place', {
-                            latitude:poi.geometry.coordinates[1],
-                            longitude:poi.geometry.coordinates[0]
-                        });
+                    //     if (poi.properties.name) {
+                    //         telephoneCompound.appendChild(board);
+                    //     }
+                    //     telephoneCompound.appendChild(telephone);
+                    //     this.el.sceneEl.appendChild(telephoneCompound);
+                    // } else if (poi.properties.amenity == 'ferry_terminal') {
+                    //     const ferryCompound = document.createElement('a-entity');
+                    //     // ferryCompound.setAttribute('look-at', '[gps-projected-camera]')
+                    //     ferryCompound.setAttribute('position', {
+                    //         x: 0,
+                    //         y: poi.geometry.coordinates[2],
+                    //         z: 0,
+                    //     })
+                    //     ferryCompound.setAttribute('gps-projected-entity-place', {
+                    //         latitude:poi.geometry.coordinates[1],
+                    //         longitude:poi.geometry.coordinates[0]
+                    //     });
 
-                        // add map marker model
-                        const ferry = document.createElement('a-entity');
-                        ferry.setAttribute('gltf-model', '#ferry');
-                        ferry.setAttribute('scale', {
-                            x: 120,
-                            y: 120,
-                            z: 120
-                        })
+                    //     // add map marker model
+                    //     const ferry = document.createElement('a-entity');
+                    //     ferry.setAttribute('gltf-model', '#ferry');
+                    //     ferry.setAttribute('scale', {
+                    //         x: 120,
+                    //         y: 120,
+                    //         z: 120
+                    //     })
 
-                        //  add box aka noticeboard
-                        const board = document.createElement('a-entity');
-                        board.setAttribute('look-at', '[gps-projected-camera]')
-                        board.setAttribute('class', 'noticeboard')
-                        board.setAttribute('position', {
-                            x: 0,
-                            y: 90,
-                            z: 0
-                        })
-                        board.setAttribute('geometry', {
-                            primitive: 'plane',
-                            width: 60,
-                            height: 6
-                        })
-                        board.setAttribute('material', {
-                            color: 'white',
-                            opacity: 0.3
-                        })
+                    //     //  add box aka noticeboard
+                    //     const board = document.createElement('a-entity');
+                    //     board.setAttribute('look-at', '[gps-projected-camera]')
+                    //     board.setAttribute('class', 'noticeboard')
+                    //     board.setAttribute('position', {
+                    //         x: 0,
+                    //         y: 90,
+                    //         z: 0
+                    //     })
+                    //     board.setAttribute('geometry', {
+                    //         primitive: 'plane',
+                    //         width: 60,
+                    //         height: 6
+                    //     })
+                    //     board.setAttribute('material', {
+                    //         color: 'white',
+                    //         opacity: 0.3
+                    //     })
                        
-                        const textEntity = document.createElement('a-entity')
-                        textEntity.setAttribute('text', {
-                            value: poi.properties.name,
-                            align: 'center',
-                            color: 'white',
-                            width: 80,
-                        })
-                        textEntity.setAttribute('position', {
-                            x:0,
-                            y:0,
-                            z: 5
-                        })
+                    //     const textEntity = document.createElement('a-entity')
+                    //     textEntity.setAttribute('text', {
+                    //         value: poi.properties.name,
+                    //         align: 'center',
+                    //         color: 'white',
+                    //         width: 80,
+                    //     })
+                    //     textEntity.setAttribute('position', {
+                    //         x:0,
+                    //         y:0,
+                    //         z: 5
+                    //     })
 
-                        board.appendChild(textEntity)
+                    //     board.appendChild(textEntity)
                 
-                        if (poi.properties.name) {
-                            ferryCompound.appendChild(board);
-                        }
-                        ferryCompound.appendChild(ferry);
-                        this.el.sceneEl.appendChild(ferryCompound);
-                    } else if (poi.properties.amenity == 'taxi') {
-                        const taxiCompound = document.createElement('a-entity');
-                        // taxiCompound.setAttribute('look-at', '[gps-projected-camera]')
-                        taxiCompound.setAttribute('position', {
-                            x: 0,
-                            y: poi.geometry.coordinates[2],
-                            z: 0,
-                        })
-                        taxiCompound.setAttribute('gps-projected-entity-place', {
-                            latitude:poi.geometry.coordinates[1],
-                            longitude:poi.geometry.coordinates[0]
-                        });
+                    //     if (poi.properties.name) {
+                    //         ferryCompound.appendChild(board);
+                    //     }
+                    //     ferryCompound.appendChild(ferry);
+                    //     // this.el.sceneEl.appendChild(ferryCompound);
+                    // } else if (poi.properties.amenity == 'taxi') {
+                    //     const taxiCompound = document.createElement('a-entity');
+                    //     // taxiCompound.setAttribute('look-at', '[gps-projected-camera]')
+                    //     taxiCompound.setAttribute('position', {
+                    //         x: 0,
+                    //         y: poi.geometry.coordinates[2],
+                    //         z: 0,
+                    //     })
+                    //     taxiCompound.setAttribute('gps-projected-entity-place', {
+                    //         latitude:poi.geometry.coordinates[1],
+                    //         longitude:poi.geometry.coordinates[0]
+                    //     });
 
-                        // add map marker model
-                        const taxi = document.createElement('a-entity');
-                        taxi.setAttribute('gltf-model', '#taxi');
-                        taxi.setAttribute('scale', {
-                            x:1,
-                            y: 1,
-                            z: 1
-                        })
+                    //     // // add map marker model
+                    //     // const taxi = document.createElement('a-entity');
+                    //     // taxi.setAttribute('gltf-model', '#taxi');
+                    //     // taxi.setAttribute('scale', {
+                    //     //     x:1,
+                    //     //     y: 1,
+                    //     //     z: 1
+                    //     // })
 
-                        //  add box aka noticeboard
-                        const board = document.createElement('a-entity');
-                        board.setAttribute('look-at', '[gps-projected-camera]')
-                        board.setAttribute('class', 'noticeboard')
-                        board.setAttribute('position', {
-                            x: 0,
-                            y: 100,
-                            z: 0
-                        })
-                        board.setAttribute('geometry', {
-                            primitive: 'plane',
-                            width: 60,
-                            height: 6
-                        })
-                        board.setAttribute('material', {
-                            color: 'white',
-                            opacity: 0.3
-                        })
+                    //     //  add box aka noticeboard
+                    //     const board = document.createElement('a-entity');
+                    //     board.setAttribute('look-at', '[gps-projected-camera]')
+                    //     board.setAttribute('class', 'noticeboard')
+                    //     board.setAttribute('position', {
+                    //         x: 0,
+                    //         y: 0,
+                    //         z: 0
+                    //     })
+                    //     board.setAttribute('geometry', {
+                    //         primitive: 'plane',
+                    //         width: 60,
+                    //         height: 6
+                    //     })
+                    //     board.setAttribute('material', {
+                    //         color: 'white',
+                    //         opacity: 0.3
+                    //     })
                         
-                        const textEntity = document.createElement('a-entity')
-                        textEntity.setAttribute('text', {
-                            value: poi.properties.name,
-                            align: 'center',
-                            color: 'white',
-                            width: 80,
-                        })
-                        textEntity.setAttribute('position', {
-                            x:0,
-                            y:0,
-                            z: 5
-                        })
+                    //     const textEntity = document.createElement('a-entity')
+                    //     textEntity.setAttribute('text', {
+                    //         value: poi.properties.name,
+                    //         align: 'center',
+                    //         color: 'white',
+                    //         width: 80,
+                    //     })
+                    //     textEntity.setAttribute('position', {
+                    //         x:0,
+                    //         y:0,
+                    //         z: 5
+                    //     })
 
-                        board.appendChild(textEntity)
+                    //     board.appendChild(textEntity)
                 
-                        if (poi.properties.name) {
-                            taxiCompound.appendChild(board);
-                        }
-                        taxiCompound.appendChild(taxi);
-                        this.el.sceneEl.appendChild(taxiCompound);
-                    }        
+                    //     if (poi.properties.name) {
+                    //         taxiCompound.appendChild(board);
+                    //     }
+                    //     // taxiCompound.appendChild(taxi);
+                    //     this.el.sceneEl.appendChild(taxiCompound);
+                    // }        
                 
             });
         });
     },
+});
+
+
+AFRAME.registerComponent("clicker", {
+    schema: {
+        name: {
+            type: 'string',
+            default: ''
+        },
+        website: {
+            type: 'string',
+            default: ''
+        },
+    },
+    init: function() {
+        this.el.addEventListener('click', e=> {
+            alert(`Opening ${this.data.name} website`)
+            window.open(`${this.data.website}`, '_blank')
+        });
+    }
 });
