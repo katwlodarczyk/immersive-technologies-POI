@@ -16,10 +16,12 @@ To install the app on your mobile with IOS operating system, follow the instruct
 
 ![alt text](./screenshots/1.jpg)
 
+
 When opening on Android operating system, install alert should pop up when opening the website for the first time.
 
 #
 To install app on your desktop, click on the button on the address bar and click 'Install'
+
 ![alt text](./screenshots/2.jpg)
 
 The project is using following 3D Models: 
