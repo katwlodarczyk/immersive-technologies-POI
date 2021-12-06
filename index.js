@@ -180,15 +180,6 @@ AFRAME.registerComponent("geolocate", {
 
                         board.appendChild(textEntity)
                     
-                        if (poi.properties.website) {
-                            restaurantCompound.setAttribute('clicker', {name:poi.properties.name, website: poi.properties.website});
-                        }
-                        if (poi.properties.name) {
-                            restaurantCompound.appendChild(board);
-                        }
-                        restaurantCompound.appendChild(burger);
-                        this.el.sceneEl.appendChild(restaurantCompound);
-
                         const restaurantCheckbox = document.querySelector('input[value="restaurants"]')
                         restaurantCheckbox.addEventListener('change', () => {
                             if(restaurantCheckbox.checked) {
@@ -197,9 +188,17 @@ AFRAME.registerComponent("geolocate", {
                                 restaurantCompound.object3D.visible = false
                             }
                         })
+
+                        if (poi.properties.website && restaurantCheckbox.checked) {
+                            restaurantCompound.setAttribute('clicker', {name:poi.properties.name, website: poi.properties.website});
+                        }
+                        if (poi.properties.name) {
+                            restaurantCompound.appendChild(board);
+                        }
+                        restaurantCompound.appendChild(burger);
+                        this.el.sceneEl.appendChild(restaurantCompound);
                     } else if (poi.properties.amenity == 'cafe') {
                         const cafeCompound = document.createElement('a-entity');
-                        // cafeCompound.setAttribute('look-at', '[gps-projected-camera]')
                         cafeCompound.setAttribute('position', {
                             x: 0,
                             y: poi.geometry.coordinates[2],
@@ -252,17 +251,7 @@ AFRAME.registerComponent("geolocate", {
                         })
 
                         board.appendChild(textEntity)
-                        cafeCompound.setAttribute('clicker', {name:poi.properties.name, website: poi.properties.website});
                 
-                        if (poi.properties.website) {
-                            cafeCompound.setAttribute('clicker', {name:poi.properties.name, website: poi.properties.website});
-                        }
-                        if (poi.properties.name) {
-                            cafeCompound.appendChild(board);
-                        }
-                        cafeCompound.appendChild(coffee);
-                        this.el.sceneEl.appendChild(cafeCompound);
-
                         const cafeCheckbox = document.querySelector('input[value="cafe"]')
                         cafeCheckbox.addEventListener('change', () => {
                             if(cafeCheckbox.checked) {
@@ -272,9 +261,18 @@ AFRAME.registerComponent("geolocate", {
                             }
                         })
 
+                        if (poi.properties.website && cafeCheckbox.checked) {
+                            cafeCompound.setAttribute('clicker', {name:poi.properties.name, website: poi.properties.website});
+                        }
+
+                        if (poi.properties.name) {
+                            cafeCompound.appendChild(board);
+                        }
+                        cafeCompound.appendChild(coffee);
+                        this.el.sceneEl.appendChild(cafeCompound);
+
                     } else if (poi.properties.amenity == ('suburb' || 'city' || 'locality')) {
                         const suburbCompound = document.createElement('a-entity');
-                        // suburbCompound.setAttribute('look-at', '[gps-projected-camera]')
                         suburbCompound.setAttribute('position', {
                             x: 0,
                             y: poi.geometry.coordinates[2],
