@@ -272,67 +272,6 @@ AFRAME.registerComponent("geolocate", {
                             }
                         })
 
-                    } else if (poi.properties.amenity == 'parking_entrance') {
-                        const parkingCompound = document.createElement('a-entity');
-                        parkingCompound.setAttribute('look-at', '[gps-projected-camera]')
-                        parkingCompound.setAttribute('position', {
-                            x: 0,
-                            y: poi.geometry.coordinates[2],
-                            z: 0,
-                        })
-                        parkingCompound.setAttribute('gps-projected-entity-place', {
-                            latitude:poi.geometry.coordinates[1],
-                            longitude:poi.geometry.coordinates[0]
-                        });
-
-                        // add parking sing model
-                        const parking = document.createElement('a-entity');
-                        parking.setAttribute('gltf-model', '#parking');
-                        parking.setAttribute('scale', {
-                            x:1,
-                            y: 1,
-                            z: 1
-                        })
-
-                        //  add box aka noticeboard
-                        const board = document.createElement('a-entity');
-
-                        board.setAttribute('class', 'noticeboard')
-                        board.setAttribute('position', {
-                            x: 0,
-                            y: 80,
-                            z: 0
-                        })
-                        board.setAttribute('geometry', {
-                            primitive: 'plane',
-                            width: 60,
-                            height: 6
-                        })
-                        board.setAttribute('material', {
-                            color: 'white',
-                            opacity: 0.3
-                        })
-                       
-                        const textEntity = document.createElement('a-entity')
-                        textEntity.setAttribute('text', {
-                            value: poi.properties.name,
-                            align: 'center',
-                            color: 'white',
-                            width: 80,
-                        })
-                        textEntity.setAttribute('position', {
-                            x:0,
-                            y:0,
-                            z: 5
-                        })
-
-                        board.appendChild(textEntity)
-                
-                        if (poi.properties.name) {
-                            parkingCompound.appendChild(board);
-                        }
-                        parkingCompound.appendChild(parking);
-                        this.el.sceneEl.appendChild(parkingCompound);
                     } else if (poi.properties.amenity == ('suburb' || 'city' || 'locality')) {
                         const suburbCompound = document.createElement('a-entity');
                         // suburbCompound.setAttribute('look-at', '[gps-projected-camera]')
@@ -405,6 +344,68 @@ AFRAME.registerComponent("geolocate", {
                         })
 
                     } 
+                    //  else if (poi.properties.amenity == 'parking_entrance') {
+                    //     const parkingCompound = document.createElement('a-entity');
+                    //     parkingCompound.setAttribute('look-at', '[gps-projected-camera]')
+                    //     parkingCompound.setAttribute('position', {
+                    //         x: 0,
+                    //         y: poi.geometry.coordinates[2],
+                    //         z: 0,
+                    //     })
+                    //     parkingCompound.setAttribute('gps-projected-entity-place', {
+                    //         latitude:poi.geometry.coordinates[1],
+                    //         longitude:poi.geometry.coordinates[0]
+                    //     });
+
+                    //     // add parking sing model
+                    //     const parking = document.createElement('a-entity');
+                    //     parking.setAttribute('gltf-model', '#parking');
+                    //     parking.setAttribute('scale', {
+                    //         x:1,
+                    //         y: 1,
+                    //         z: 1
+                    //     })
+
+                    //     //  add box aka noticeboard
+                    //     const board = document.createElement('a-entity');
+
+                    //     board.setAttribute('class', 'noticeboard')
+                    //     board.setAttribute('position', {
+                    //         x: 0,
+                    //         y: 80,
+                    //         z: 0
+                    //     })
+                    //     board.setAttribute('geometry', {
+                    //         primitive: 'plane',
+                    //         width: 60,
+                    //         height: 6
+                    //     })
+                    //     board.setAttribute('material', {
+                    //         color: 'white',
+                    //         opacity: 0.3
+                    //     })
+                       
+                    //     const textEntity = document.createElement('a-entity')
+                    //     textEntity.setAttribute('text', {
+                    //         value: poi.properties.name,
+                    //         align: 'center',
+                    //         color: 'white',
+                    //         width: 80,
+                    //     })
+                    //     textEntity.setAttribute('position', {
+                    //         x:0,
+                    //         y:0,
+                    //         z: 5
+                    //     })
+
+                    //     board.appendChild(textEntity)
+                
+                    //     if (poi.properties.name) {
+                    //         parkingCompound.appendChild(board);
+                    //     }
+                    //     parkingCompound.appendChild(parking);
+                    //     this.el.sceneEl.appendChild(parkingCompound);
+                    // }
                     // else if (poi.properties.amenity == 'telephone') {
                     //     const telephoneCompound = document.createElement('a-entity');
                     //     // telephoneCompound.setAttribute('look-at', '[gps-projected-camera]')
