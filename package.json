@@ -12,7 +12,7 @@
     "@ar-js-org/ar.js": "^3.3.2-es6-beta-01",
     "aframe": "^1.2.0",
     "aframe-look-at-component": "^1.0.0",
-    "aframe-osm-3d": "^0.5.1",
+    "aframe-osm-3d": "^0.5.2",
     "node-polyfill-webpack-plugin": "^1.1.4"
 },
 "devDependencies": {
