@@ -20,7 +20,7 @@ AFRAME.registerComponent("geolocate", {
         this.camera = document.querySelector('[camera]');
         this.loaded = false;
         document.getElementById('selectType').style.visibility = "hidden" 
-        window.addEventListener('gps-camera-update-position', async (e) => {
+        window.addEventListener('gps-camera-update-position', (e) => {
             if(this.loaded === false) {
                 this.el.setAttribute('terrarium-dem', {
                     lat: e.detail.position.latitude,
