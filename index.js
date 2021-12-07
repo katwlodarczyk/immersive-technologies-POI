@@ -23,10 +23,8 @@ AFRAME.registerComponent("geolocate", {
         window.addEventListener('gps-camera-update-position', (e) => {
             if(this.loaded === false) {
                 this.el.setAttribute('terrarium-dem', {
-                    lat: 50.90825,
-                    lon: -1.40026
-                    // lat: e.detail.position.latitude,
-                    // lon: e.detail.position.longitude
+                    lat: e.detail.position.latitude,
+                    lon: e.detail.position.longitude
                 })
                 // Display current location on screen
                 document.getElementById('lon').innerHTML = "Longitute: "+ e.detail.position.longitude.toFixed(5);
@@ -49,7 +47,6 @@ AFRAME.registerComponent("geolocate", {
         this.el.addEventListener('osm-data-loaded', e => {
             document.getElementById('info').innerHTML = "";
             document.getElementById('selectType').style.visibility = "visible" 
-            console.log(e.detail.pois)
             e.detail.pois
                 .forEach ( poi => {
                     if (poi.properties.amenity == 'pub') {
@@ -126,6 +123,7 @@ AFRAME.registerComponent("geolocate", {
                                 pubCompound.object3D.visible = false
                             }
                         })
+
                     } else if (poi.properties.amenity == 'restaurant') {
                         const restaurantCompound = document.createElement('a-entity');
                         restaurantCompound.setAttribute('position', {
@@ -199,6 +197,7 @@ AFRAME.registerComponent("geolocate", {
                         }
                         restaurantCompound.appendChild(burger);
                         this.el.sceneEl.appendChild(restaurantCompound);
+
                     } else if (poi.properties.amenity == 'cafe') {
                         const cafeCompound = document.createElement('a-entity');
                         cafeCompound.setAttribute('position', {
@@ -273,6 +272,7 @@ AFRAME.registerComponent("geolocate", {
                         cafeCompound.appendChild(coffee);
                         this.el.sceneEl.appendChild(cafeCompound);
 
+                        
                     } else if (poi.properties.amenity == ('suburb' || 'city' || 'locality')) {
                         const suburbCompound = document.createElement('a-entity');
                         suburbCompound.setAttribute('position', {
