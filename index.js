@@ -140,9 +140,9 @@ AFRAME.registerComponent("geolocate", {
                         const burger = document.createElement('a-entity');
                         burger.setAttribute('gltf-model', '#burger');
                         burger.setAttribute('scale', {
-                            x:50,
-                            y: 50,
-                            z: 50
+                            x:300,
+                            y: 300,
+                            z: 300
                         })
                     
                     
@@ -202,7 +202,7 @@ AFRAME.registerComponent("geolocate", {
                         cafeCompound.setAttribute('position', {
                             x: 0,
                             y: poi.geometry.coordinates[2],
-                            z: 1,
+                            z: 0,
                         })
                         cafeCompound.setAttribute('gps-projected-entity-place', {
                             latitude:poi.geometry.coordinates[1],
