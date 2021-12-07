@@ -23,8 +23,10 @@ AFRAME.registerComponent("geolocate", {
         window.addEventListener('gps-camera-update-position', (e) => {
             if(this.loaded === false) {
                 this.el.setAttribute('terrarium-dem', {
-                    lat: e.detail.position.latitude,
-                    lon: e.detail.position.longitude
+                    lat: 50.90825,
+                    lon: -1.40026
+                    // lat: e.detail.position.latitude,
+                    // lon: e.detail.position.longitude
                 })
                 // Display current location on screen
                 document.getElementById('lon').innerHTML = "Longitute: "+ e.detail.position.longitude.toFixed(5);
@@ -216,7 +218,7 @@ AFRAME.registerComponent("geolocate", {
                             x:20,
                             y: 20,
                             z: 20
-                        })
+                        });
 
                         //  add box aka noticeboard
                         const board = document.createElement('a-entity');
