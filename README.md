@@ -47,3 +47,5 @@ The project is using following 3D Models:
 - "Low-Poly Coffee Cup" (https://skfb.ly/6TN8u) by axeboyd123 is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 
 - "Point Marker" (https://skfb.ly/RXsI) by whoiskeo is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
+- "Parking Sign" (https://skfb.ly/69yYA) by elouisetrewartha is licensed under Creative Commons Attribution-NonCommercial (http://creativecommons.org/licenses/by-nc/4.0/)
