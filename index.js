@@ -202,7 +202,7 @@ AFRAME.registerComponent("geolocate", {
                         cafeCompound.setAttribute('position', {
                             x: 0,
                             y: poi.geometry.coordinates[2],
-                            z: 0,
+                            z: 1,
                         })
                         cafeCompound.setAttribute('gps-projected-entity-place', {
                             latitude:poi.geometry.coordinates[1],
