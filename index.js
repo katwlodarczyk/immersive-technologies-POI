@@ -3,17 +3,17 @@ import '@ar-js-org/ar.js';
 import 'aframe-look-at-component';
 import 'aframe-osm-3d';
 
-if('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('./service-worker.js')
-        .then(registration => {
-            console.log('Registered successfully.');
-        })
-        .catch(e => {
-            console.error(`Service worker registration failed: ${e}`);
-        });    
-} else {
-    alert('Sorry, offline functionality not available, please update your browser!');
-}
+// if('serviceWorker' in navigator) {
+//     navigator.serviceWorker.register('./service-worker.js')
+//         .then(registration => {
+//             console.log('Registered successfully.');
+//         })
+//         .catch(e => {
+//             console.error(`Service worker registration failed: ${e}`);
+//         });    
+// } else {
+//     alert('Sorry, offline functionality not available, please update your browser!');
+// }
 
 AFRAME.registerComponent("geolocate", {
     init: function() {
@@ -21,7 +21,7 @@ AFRAME.registerComponent("geolocate", {
         this.loaded = false;
         document.getElementById('selectType').style.visibility = "hidden" 
         window.addEventListener('gps-camera-update-position', (e) => {
-            if(this.loaded === false) {
+            // if(this.loaded === false) {
                 this.el.setAttribute('terrarium-dem', {
                     lat: e.detail.position.latitude,
                     lon: e.detail.position.longitude
@@ -29,8 +29,8 @@ AFRAME.registerComponent("geolocate", {
                 // Display current location on screen
                 document.getElementById('lon').innerHTML = "Longitute: "+ e.detail.position.longitude.toFixed(5);
                 document.getElementById('lat').innerHTML = "Latitude: "+e.detail.position.latitude.toFixed(5);
-                this.loaded = true
-            }
+            //     this.loaded = true
+            // }
         });
         this.el.addEventListener('elevation-available', e => {
             this.camera.object3D.position.y = e.detail.elevation+ 1.6;
@@ -272,7 +272,7 @@ AFRAME.registerComponent("geolocate", {
                         cafeCompound.appendChild(coffee);
                         this.el.sceneEl.appendChild(cafeCompound);
 
-                        
+
                     } else if (poi.properties.amenity == ('suburb' || 'city' || 'locality')) {
                         const suburbCompound = document.createElement('a-entity');
                         suburbCompound.setAttribute('position', {
