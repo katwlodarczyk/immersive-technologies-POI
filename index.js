@@ -195,8 +195,8 @@ AFRAME.registerComponent("geolocate", {
                         if (poi.properties.name) {
                             restaurantCompound.appendChild(board);
                         }
-                        restaurantCompound.appendChild(burger);
-                        this.el.sceneEl.appendChild(restaurantCompound);
+                        // restaurantCompound.appendChild(burger);
+                        this.el.sceneEl.appendChild(burger);
                     } else if (poi.properties.amenity == 'cafe') {
                         const cafeCompound = document.createElement('a-entity');
                         cafeCompound.setAttribute('position', {
