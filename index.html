@@ -22,13 +22,9 @@
           <a-asset-item id="beer-bottle" src="./models/beer/scene.gltf"></a-asset-item>
           <a-asset-item id="coffee" src="./models/low-poly_coffee_cup/scene.gltf"></a-asset-item>
           <a-asset-item id="burger" src="./models/cheese_burger/scene.gltf"></a-asset-item>
-          <a-asset-item id="parking" src="./models/parking_sign/scene.gltf"></a-asset-item>
           <a-asset-item id="marker" src="./models/point_marker/scene.gltf"></a-asset-item>
-          <!-- <a-asset-item id="telephone" src="./models/telephone/scene.gltf"></a-asset-item>
-          <a-asset-item id="ferry" src="./models/ferry/scene.gltf"></a-asset-item>
-          <a-asset-item id="taxi" src="./models/taxi/scene.gltf"></a-asset-item> -->
         </a-assets>
-    <a-camera wasd-controls gps-camera='maxDistance: 10' position='0 1.6 0' gps-projected-camera rotation-reader></a-camera>
+    <a-camera look-controls-enabled='false' arjs-look-controls='smoothingFactor: 0.1' gps-camera='gpsMinDistance: 5; maxDistance: 10' position='0 1.6 0' gps-projected-camera rotation-reader></a-camera>
     <div id="stat-bar">
     </div>
     <div id="stats">

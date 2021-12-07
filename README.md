@@ -9,7 +9,13 @@ Hosted on:
 
 https://katwlodarczyk.github.io/immersive-technologies-POI/
 #
-To run the poject locally: ```npm run watch``` and open ```index.html``` with a LiveServer
+To run the poject locally: 
+
+```npm install``` to install all the dependencies 
+
+```npm run watch``` to watch for changes 
+
+and open ```index.html``` with a LiveServer
 
 #
 To install the app on your mobile with IOS operating system, follow the instructions below:
@@ -41,5 +47,3 @@ The project is using following 3D Models:
 - "Low-Poly Coffee Cup" (https://skfb.ly/6TN8u) by axeboyd123 is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 
 - "Point Marker" (https://skfb.ly/RXsI) by whoiskeo is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
-
-- "Parking Sign" (https://skfb.ly/69yYA) by elouisetrewartha is licensed under Creative Commons Attribution-NonCommercial (http://creativecommons.org/licenses/by-nc/4.0/)
