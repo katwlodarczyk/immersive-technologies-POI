@@ -140,9 +140,9 @@ AFRAME.registerComponent("geolocate", {
                         const burger = document.createElement('a-entity');
                         burger.setAttribute('gltf-model', '#burger');
                         burger.setAttribute('scale', {
-                            x:300,
-                            y: 300,
-                            z: 300
+                            x:1,
+                            y: 1,
+                            z: 1
                         })
                     
                     
