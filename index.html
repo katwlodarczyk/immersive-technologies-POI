@@ -14,8 +14,8 @@
 <body>
   <a-scene
         cursor="rayOrigin:mouse" 
-        raycaster="near:0.1; far:1000"
-        renderer="logarithmicDepthBuffer: true; antialias: true; alpha: true"
+        raycaster="near:0.1; far:5000; objects: [data-raycastable]"
+        renderer="antialias: true; alpha: true"
         vr-mode-ui="enabled: false"
         arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false;'>
         <a-assets>
@@ -24,7 +24,7 @@
           <a-asset-item id="burger" src="./models/cheese_burger/scene.gltf"></a-asset-item>
           <a-asset-item id="marker" src="./models/point_marker/scene.gltf"></a-asset-item>
         </a-assets>
-    <a-camera gps-camera='gpsMinDistance: 5; maxDistance: 10' position='0 0 0' gps-projected-camera rotation-reader></a-camera>
+    <a-camera gps-camera='gpsMinDistance: 5; maxDistance: 10' arjs-look-controls='smoothingFactor: 0.1' near="0.1" far="50000" position='0 0 0' gps-projected-camera rotation-reader></a-camera>
     <a-entity light="type: hemisphere; color: #ffffff; groundColor: #333333; intensity: 2"></a-entity>
     <div id="stat-bar">
     </div>
