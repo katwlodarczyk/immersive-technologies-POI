@@ -211,20 +211,6 @@ AFRAME.registerComponent("geolocate", {
 
                         // add cup model
                         const coffee = document.createElement('a-entity');
-
-                        // 
-                        coffee.setAttribute('position', {
-                            x: 0,
-                            y: poi.geometry.coordinates[2],
-                            z: 0,
-                        })
-                        coffee.setAttribute('gps-projected-entity-place', {
-                            latitude:poi.geometry.coordinates[1],
-                            longitude:poi.geometry.coordinates[0]
-                        });
-
-                        // 
-
                         coffee.setAttribute('gltf-model', '#coffee');
                         coffee.setAttribute('scale', {
                             x:20,
@@ -283,7 +269,7 @@ AFRAME.registerComponent("geolocate", {
                             cafeCompound.appendChild(board);
                         }
                         cafeCompound.appendChild(coffee);
-                        this.el.sceneEl.appendChild(coffee);
+                        this.el.sceneEl.appendChild(cafeCompound);
 
                     } else if (poi.properties.amenity == ('suburb' || 'city' || 'locality')) {
                         const suburbCompound = document.createElement('a-entity');
