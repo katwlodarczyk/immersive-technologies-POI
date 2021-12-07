@@ -530,7 +530,7 @@ AFRAME.registerComponent("geolocate", {
                             ferryCompound.appendChild(board);
                         }
                         ferryCompound.appendChild(ferry);
-                        // this.el.sceneEl.appendChild(ferryCompound);
+                        this.el.sceneEl.appendChild(ferryCompound);
                     } else if (poi.properties.amenity == 'taxi') {
                         const taxiCompound = document.createElement('a-entity');
                         // taxiCompound.setAttribute('look-at', '[gps-projected-camera]')
@@ -590,7 +590,7 @@ AFRAME.registerComponent("geolocate", {
                         if (poi.properties.name) {
                             taxiCompound.appendChild(board);
                         }
-                        // taxiCompound.appendChild(taxi);
+                        taxiCompound.appendChild(taxi);
                         this.el.sceneEl.appendChild(taxiCompound);
                     }        
             });
