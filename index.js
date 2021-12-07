@@ -218,6 +218,33 @@ AFRAME.registerComponent("geolocate", {
                             z: 20
                         })
 
+
+                        // 
+
+                        // Add a cone entity to the compound
+                    const cone = document.createElement('a-cone');
+
+                    cone.setAttribute('material', {
+                        color: 'red'
+                    });
+                
+                    cone.setAttribute('radius-top', 0.1);
+                    // cone.setAttribute('radius-bottom', 100);
+                    cone.setAttribute('height', 3);
+                    cone.setAttribute('scale', {
+                        x: 150,
+                        y: 150,
+                        z: 150
+                    });
+                     // set the elevation
+                     cone.setAttribute('position', {
+                        x: 0,
+                        y: 2,
+                        z: 0,
+                    })
+
+                        // 
+
                         //  add box aka noticeboard
                         const board = document.createElement('a-entity');
                         board.setAttribute('look-at', '[gps-projected-camera]')
@@ -268,7 +295,8 @@ AFRAME.registerComponent("geolocate", {
                         if (poi.properties.name) {
                             cafeCompound.appendChild(board);
                         }
-                        cafeCompound.appendChild(coffee);
+                        // cafeCompound.appendChild(coffee);
+                        cafeCompound.appendChild(cone)
                         this.el.sceneEl.appendChild(cafeCompound);
 
                     } else if (poi.properties.amenity == ('suburb' || 'city' || 'locality')) {
