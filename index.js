@@ -270,8 +270,7 @@ AFRAME.registerComponent("geolocate", {
                         if (poi.properties.name) {
                             cafeCompound.appendChild(board);
                         }
-                        // cafeCompound.appendChild(coffee);
-                        cafeCompound.appendChild(cone)
+                        cafeCompound.appendChild(coffee);
                         this.el.sceneEl.appendChild(cafeCompound);
 
                     } else if (poi.properties.amenity == ('suburb' || 'city' || 'locality')) {
