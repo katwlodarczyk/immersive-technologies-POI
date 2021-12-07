@@ -131,7 +131,7 @@ AFRAME.registerComponent("geolocate", {
                             y: poi.geometry.coordinates[2],
                             z: 0,
                         })
-                        restaurantCompound.setAttribute('gps-projected-entity-place', {
+                        restaurantCompound.setAttribute('gps-entity-place', {
                             latitude:poi.geometry.coordinates[1],
                             longitude:poi.geometry.coordinates[0]
                         });
