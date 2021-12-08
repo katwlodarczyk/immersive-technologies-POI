@@ -66,9 +66,9 @@ AFRAME.registerComponent("geolocate", {
                         const bottle = document.createElement('a-entity');
                         bottle.setAttribute('gltf-model', '#beer-bottle');
                         bottle.setAttribute('scale', {
-                            x: 1,
-                            y: 1,
-                            z: 1
+                            x: 5,
+                            y: 5,
+                            z: 5
                         })
 
                         //  add box aka noticeboard
@@ -77,13 +77,13 @@ AFRAME.registerComponent("geolocate", {
                         board.setAttribute('class', 'noticeboard')
                         board.setAttribute('position', {
                             x: 0,
-                            y: 100,
+                            y: 1,
                             z: 0
                         })
                         board.setAttribute('geometry', {
                             primitive: 'plane',
-                            width: 60,
-                            height: 6
+                            width: 20,
+                            height: 2
                         })
                         board.setAttribute('material', {
                             color: 'white',
@@ -95,7 +95,7 @@ AFRAME.registerComponent("geolocate", {
                             value: poi.properties.name,
                             align: 'center',
                             color: 'white',
-                            width: 80,
+                            width: 20,
                         })
                         textEntity.setAttribute('position', {
                             x:0,
