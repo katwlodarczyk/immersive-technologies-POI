@@ -401,7 +401,7 @@ AFRAME.registerComponent("geolocate", {
                 
                         const parkingCheckbox = document.querySelector('input[value="carpark"]')
                         parkingCheckbox.addEventListener('change', () => {
-                            if(localityCheckbox.checked) {
+                            if(parkingCheckbox.checked) {
                                 parkingCompound.object3D.visible = true
                             } else {
                                 parkingCompound.object3D.visible = false

@@ -115,7 +115,8 @@ animation-duration: 0.4s
   .selectItem {
     display: flex;
     flex-direction: row;
-    margin-top: 6px;
+    align-items: center;
+    margin-top: 8px;
   }
 
   /* The Close Button */
@@ -131,4 +132,9 @@ animation-duration: 0.4s
     color: black;
     text-decoration: none;
     cursor: pointer;
+  }
+
+  input[ type='checkbox'] {
+      background-color: #DFA286;
+      margin: 6px 6px 6px 0;
   }
