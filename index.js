@@ -47,6 +47,7 @@ AFRAME.registerComponent("geolocate", {
         this.el.addEventListener('osm-data-loaded', e => {
             document.getElementById('info').innerHTML = "";
             document.getElementById('selectType').style.visibility = "visible" 
+            console.log(e.detail.rawData.ways);
             e.detail.pois
                 .forEach ( poi => {
                     if (poi.properties.amenity == 'pub') {
@@ -214,9 +215,9 @@ AFRAME.registerComponent("geolocate", {
                         const coffee = document.createElement('a-entity');
                         coffee.setAttribute('gltf-model', '#coffee');
                         coffee.setAttribute('scale', {
-                            x:20,
-                            y: 20,
-                            z: 20
+                            x:1,
+                            y: 1,
+                            z: 1
                         });
 
                         //  add box aka noticeboard
@@ -225,13 +226,13 @@ AFRAME.registerComponent("geolocate", {
                         board.setAttribute('class', 'noticeboard')
                         board.setAttribute('position', {
                             x: 0,
-                            y: 80,
+                            y: 5,
                             z: 0
                         })
                         board.setAttribute('geometry', {
                             primitive: 'plane',
-                            width: 60,
-                            height: 6
+                            width: 20,
+                            height: 2
                         })
                         board.setAttribute('material', {
                             color: 'white',
@@ -243,7 +244,7 @@ AFRAME.registerComponent("geolocate", {
                             value: poi.properties.name,
                             align: 'center',
                             color: 'white',
-                            width: 80,
+                            width: 20,
                         })
                         textEntity.setAttribute('position', {
                             x:0,
@@ -289,9 +290,9 @@ AFRAME.registerComponent("geolocate", {
                         const marker = document.createElement('a-entity');
                         marker.setAttribute('gltf-model', '#marker');
                         marker.setAttribute('scale', {
-                            x:50,
-                            y: 50,
-                            z: 50
+                            x:20,
+                            y: 20,
+                            z: 20
                         })
 
                        //  add box aka noticeboard
@@ -360,9 +361,9 @@ AFRAME.registerComponent("geolocate", {
                         const parking = document.createElement('a-entity');
                         parking.setAttribute('gltf-model', '#parking');
                         parking.setAttribute('scale', {
-                            x:4,
-                            y: 4,
-                            z: 4
+                            x:2,
+                            y: 2,
+                            z: 2
                         })
 
                         //  add box aka noticeboard
