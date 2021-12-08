@@ -289,9 +289,9 @@ AFRAME.registerComponent("geolocate", {
                         const marker = document.createElement('a-entity');
                         marker.setAttribute('gltf-model', '#marker');
                         marker.setAttribute('scale', {
-                            x:10000,
-                            y: 10000,
-                            z: 10000
+                            x:50,
+                            y: 50,
+                            z: 50
                         })
 
                        //  add box aka noticeboard
@@ -360,9 +360,9 @@ AFRAME.registerComponent("geolocate", {
                         const parking = document.createElement('a-entity');
                         parking.setAttribute('gltf-model', '#parking');
                         parking.setAttribute('scale', {
-                            x:1,
-                            y: 1,
-                            z: 1
+                            x:4,
+                            y: 4,
+                            z: 4
                         })
 
                         //  add box aka noticeboard
@@ -399,6 +399,15 @@ AFRAME.registerComponent("geolocate", {
 
                         board.appendChild(textEntity)
                 
+                        const parkingCheckbox = document.querySelector('input[value="carpark"]')
+                        parkingCheckbox.addEventListener('change', () => {
+                            if(localityCheckbox.checked) {
+                                parkingCompound.object3D.visible = true
+                            } else {
+                                parkingCompound.object3D.visible = false
+                            }
+                        })
+
                         if (poi.properties.name) {
                             parkingCompound.appendChild(board);
                         }
@@ -407,7 +416,6 @@ AFRAME.registerComponent("geolocate", {
                     }
                     else if (poi.properties.amenity == 'telephone') {
                         const telephoneCompound = document.createElement('a-entity');
-                        // telephoneCompound.setAttribute('look-at', '[gps-projected-camera]')
                         telephoneCompound.setAttribute('position', {
                             x: 0,
                             y: poi.geometry.coordinates[2],
@@ -444,12 +452,6 @@ AFRAME.registerComponent("geolocate", {
                             color: 'white',
                             opacity: 0.3
                         })
-                        // board.setAttribute('text', {
-                        //     value: poi.properties.name,
-                        //     align: 'center',
-                        //     color: 'white',
-                        //     width: 80,
-                        // })
                         const textEntity = document.createElement('a-entity')
                         textEntity.setAttribute('text', {
                             value: poi.properties.name,
@@ -465,6 +467,15 @@ AFRAME.registerComponent("geolocate", {
 
                         board.appendChild(textEntity)
                 
+                        const phoneCheckbox = document.querySelector('input[value="phone"]')
+                        phoneCheckbox.addEventListener('change', () => {
+                            if(phoneCheckbox.checked) {
+                                telephoneCompound.object3D.visible = true
+                            } else {
+                                telephoneCompound.object3D.visible = false
+                            }
+                        })
+
                         if (poi.properties.name) {
                             telephoneCompound.appendChild(board);
                         }
@@ -526,6 +537,15 @@ AFRAME.registerComponent("geolocate", {
 
                         board.appendChild(textEntity)
                 
+                        const ferryCheckbox = document.querySelector('input[value="ferry"]')
+                        ferryCheckbox.addEventListener('change', () => {
+                            if(ferryCheckbox.checked) {
+                                ferryCompound.object3D.visible = true
+                            } else {
+                                ferryCompound.object3D.visible = false
+                            }
+                        })
+
                         if (poi.properties.name) {
                             ferryCompound.appendChild(board);
                         }
@@ -533,7 +553,6 @@ AFRAME.registerComponent("geolocate", {
                         this.el.sceneEl.appendChild(ferryCompound);
                     } else if (poi.properties.amenity == 'taxi') {
                         const taxiCompound = document.createElement('a-entity');
-                        // taxiCompound.setAttribute('look-at', '[gps-projected-camera]')
                         taxiCompound.setAttribute('position', {
                             x: 0,
                             y: poi.geometry.coordinates[2],
@@ -544,7 +563,7 @@ AFRAME.registerComponent("geolocate", {
                             longitude:poi.geometry.coordinates[0]
                         });
 
-                        // // add map marker model
+                        // // add model
                         const taxi = document.createElement('a-entity');
                         taxi.setAttribute('gltf-model', '#taxi');
                         taxi.setAttribute('scale', {
@@ -587,6 +606,15 @@ AFRAME.registerComponent("geolocate", {
 
                         board.appendChild(textEntity)
                 
+                        const taxiCheckbox = document.querySelector('input[value="taxi"]')
+                        taxiCheckbox.addEventListener('change', () => {
+                            if(taxiCheckbox.checked) {
+                                taxiCompound.object3D.visible = true
+                            } else {
+                                taxiCompound.object3D.visible = false
+                            }
+                        })
+
                         if (poi.properties.name) {
                             taxiCompound.appendChild(board);
                         }
@@ -612,10 +640,31 @@ AFRAME.registerComponent("clicker", {
     },
     init: function() {
         this.el.addEventListener('click', e=> {
-            const r = confirm(`Would you like to open ${this.data.name} website?`)
+            const r = confirm(`Would you like to open ${this.data.name} website: ${this.data.website}?`)
             if (r == true) {
                 window.open(`${this.data.website}`, '_blank')
             }
         });
     }
 });
+
+
+window.onload = function(){ 
+    const modal = document.getElementById("modal");
+    const btn = document.getElementById("filterBtn");
+    const span = document.getElementsByClassName("close")[0];
+
+    btn.onclick = function() {
+    modal.style.display = "block";
+    }
+
+    span.onclick = function() {
+    modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+    }
+};

@@ -15,7 +15,7 @@
   <a-scene
         cursor="rayOrigin:mouse" 
         raycaster="near:0.1; far:5000; objects: [data-raycastable]"
-        renderer="antialias: true; alpha: true"
+        renderer="antialias: true; alpha: true; logarithmicDepthBuffer: true"
         vr-mode-ui="enabled: false"
         arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false;'>
         <a-assets>
@@ -41,17 +41,54 @@
     </div>
     <div id="info"></div>
     <div id="selectType">
-      <input type="checkbox" id="pubs" name="pubs" value="pubs" checked>
-      <label for="pubs">Pubs</label>
-
-      <input type="checkbox" id="restaurants" name="restaurants" value="restaurants" checked>
-      <label for="restaurants">Restaurants</label>
-
-      <input type="checkbox" id="cafe" name="cafe" value="cafe" checked>
-      <label for="cafe">Cafes</label>
-
-      <input type="checkbox" id="locality" name="locality" value="locality" checked>
-      <label for="locality">Locality</label>
+      <div id="filterBtn">
+        <span>FILTER</span>
+        <svg xmlns="http://www.w3.org/2000/svg" style="width: 24px; margin-left: 6px" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+        </svg>
+      </div>
+      <div id="modal" class="modal">
+        <div class="modal-content">
+          <div class=modal-header>
+            <span class="close">&times;</span>
+            <div>Filter by Type:</div>
+          </div>
+          <DIV class="selectType">
+            <div class="selectItem">
+              <input type="checkbox" id="pubs" name="pubs" value="pubs" checked>
+              <label for="pubs">Pub</label>
+            </div>
+            <div class="selectItem">
+              <input type="checkbox" id="restaurants" name="restaurants" value="restaurants" checked>
+              <label for="restaurants">Restaurant</label>
+            </div>
+            <div class="selectItem">
+              <input type="checkbox" id="cafe" name="cafe" value="cafe" checked>
+              <label for="cafe">Cafe</label>
+            </div>
+            <div class="selectItem">
+              <input type="checkbox" id="locality" name="locality" value="locality" checked>
+              <label for="locality">Locality</label>
+            </div>
+            <div class="selectItem">
+              <input type="checkbox" id="ferry" name="ferry" value="ferry" checked>
+              <label for="locality">Ferry</label>
+            </div>
+            <div class="selectItem">
+              <input type="checkbox" id="taxi" name="taxi" value="taxi" checked>
+              <label for="locality">Taxi</label>
+            </div>
+            <div class="selectItem">
+              <input type="checkbox" id="carpark" name="carpark" value="carpark" checked>
+              <label for="locality">Car Park</label>
+            </div>
+            <div class="selectItem">
+              <input type="checkbox" id="phone" name="phone" value="phone" checked>
+              <label for="locality">Telephone</label>
+            </div>
+          </DIV>
+        </div>
+      </div>
     </div>
     <a-entity terrarium-dem='zoom: 15; url: https://hikar.org/webapp/dem/{z}/{x}/{y}.png' osm3d='url: https://hikar.org/webapp/map/{z}/{x}/{y}.json?outProj=4326' geolocate></a-entity>
   </a-scene>

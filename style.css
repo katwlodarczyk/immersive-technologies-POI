@@ -1,3 +1,7 @@
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
 #stats {
     width: 90vw;
     position: absolute;
@@ -9,7 +13,7 @@
     justify-content: space-between;
 }
 
-#info, #selectType {
+#info {
     position: absolute;
     bottom: 30px;
     margin: 0 auto;
@@ -37,10 +41,94 @@
     z-index: 20;
     background-color: rgb(203, 203, 203);
     width: 100vw;
-    height: 70px;
+    height: 80px;
     opacity: 0.3;
 }
 
 .noticeboard text{
     font-size: 20px
 }
+
+#filterBtn {
+    position: absolute;
+    bottom: 25px;
+    right: 20px;
+    z-index: 20;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: max-content;
+    font-size: 14px;
+    padding: 6px 12px;
+    color:#fefefe;
+    border-radius: 6px;
+    background-color: rgb(176, 176, 176);
+    opacity: 0.9;
+    border: 1px solid #aaa;
+    box-shadow: 9px 7px 26px -12px rgba(51,51,51,0.65);
+    letter-spacing: 2px;
+}
+
+.modal {
+    display: none;
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+  }
+  
+.modal-content {
+background-color: #fefefe;
+margin: 50% auto;
+padding: 20px;
+border: 1px solid #888;
+border-radius: 6px;
+width: 70%; 
+color: #333333;
+animation-name: animatetop;
+animation-duration: 0.4s
+}
+
+.modal-header {
+    padding: 2px 0 16px 0;
+    color: #333333;
+    font-size: 24px;
+  }
+
+  @keyframes animatetop {
+    from {bottom: -300px; opacity: 0}
+    to {bottom: 0; opacity: 1}
+  }
+  
+  .selectType { 
+    display: flex;
+    flex-direction: column;
+  }
+
+  .selectItem {
+    display: flex;
+    flex-direction: row;
+    margin-top: 6px;
+  }
+
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
