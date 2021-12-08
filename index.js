@@ -141,9 +141,9 @@ AFRAME.registerComponent("geolocate", {
                         const burger = document.createElement('a-entity');
                         burger.setAttribute('gltf-model', '#burger');
                         burger.setAttribute('scale', {
-                            x:300,
-                            y: 300,
-                            z: 300
+                            x:20,
+                            y: 20,
+                            z: 20
                         })
                     
                     
@@ -153,13 +153,13 @@ AFRAME.registerComponent("geolocate", {
                         board.setAttribute('class', 'noticeboard')
                         board.setAttribute('position', {
                             x: 0,
-                            y: 50,
+                            y: 5,
                             z: 0
                         })
                         board.setAttribute('geometry', {
                             primitive: 'plane',
-                            width: 60,
-                            height: 6
+                            width: 20,
+                            height: 2
                         })
                         board.setAttribute('material', {
                             color: 'white',
@@ -171,7 +171,7 @@ AFRAME.registerComponent("geolocate", {
                             value: poi.properties.name,
                             align: 'center',
                             color: 'white',
-                            width: 80,
+                            width: 20,
                         })
                         textEntity.setAttribute('position', {
                             x:0,
