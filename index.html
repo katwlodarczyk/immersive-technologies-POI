@@ -28,8 +28,8 @@
           <a-asset-item id="ferry" src="./models/ferry/scene.gltf"></a-asset-item>
           <a-asset-item id="taxi" src="./models/taxi/scene.gltf"></a-asset-item>
         </a-assets>
-    <a-camera gps-camera='gpsMinDistance: 5; maxDistance: 10' position='0 0 0' gps-projected-camera rotation-reader></a-camera>
-    <!-- <a-entity light="type: hemisphere; color: #ffffff; groundColor: #333333; intensity: 2"></a-entity> -->
+    <a-camera gps-camera='gpsMinDistance: 5; maxDistance: 10' arjs-look-controls='smoothingFactor: 0.1' near="0.1" far="50000" position='0 0 0' gps-projected-camera rotation-reader></a-camera>
+    <a-entity light="type: hemisphere; color: #ffffff; groundColor: #333333; intensity: 2"></a-entity>
     <div id="stat-bar">
     </div>
     <div id="stats">
