@@ -314,27 +314,25 @@ AFRAME.registerComponent("geolocate", {
                            opacity: 0.3
                        })
 
-                    const textEntity = document.createElement('a-entity')
-                    textEntity.setAttribute('text', {
-                        value: poi.properties.name,
-                        align: 'center',
-                        color: 'white',
-                        width: 80,
-                    })
-                    textEntity.setAttribute('position', {
-                        x:0,
-                        y:0,
-                        z: 5
-                    })
+                        const textEntity = document.createElement('a-entity')
+                        textEntity.setAttribute('text', {
+                            value: poi.properties.name,
+                            align: 'center',
+                            color: 'white',
+                            width: 80,
+                        })
+                        textEntity.setAttribute('position', {
+                            x:0,
+                            y:0,
+                            z: 5
+                        })
 
-                    board.appendChild(textEntity)
-                
+                        board.appendChild(textEntity)
+                    
                         if (poi.properties.name) {
                             suburbCompound.appendChild(board);
                         }
-                        suburbCompound.appendChild(marker);
-                        this.el.sceneEl.appendChild(suburbCompound);
-
+                
                         const localityCheckbox = document.querySelector('input[value="locality"]')
                         localityCheckbox.addEventListener('change', () => {
                             if(localityCheckbox.checked) {
@@ -343,6 +341,12 @@ AFRAME.registerComponent("geolocate", {
                                 suburbCompound.object3D.visible = false
                             }
                         })
+                        if (poi.properties.website && localityCheckbox.checked) {
+                            suburbCompound.setAttribute('clicker', {name:poi.properties.name, website: poi.properties.website});
+                        }
+
+                        suburbCompound.appendChild(marker);
+                        this.el.sceneEl.appendChild(suburbCompound);
 
                     } else if (poi.properties.amenity == 'parking_entrance') {
                         const parkingCompound = document.createElement('a-entity');
@@ -412,6 +416,11 @@ AFRAME.registerComponent("geolocate", {
                         if (poi.properties.name) {
                             parkingCompound.appendChild(board);
                         }
+
+                        if (poi.properties.website && parkingCheckbox.checked) {
+                            parkingCompound.setAttribute('clicker', {name:poi.properties.name, website: poi.properties.website});
+                        }
+
                         parkingCompound.appendChild(parking);
                         this.el.sceneEl.appendChild(parkingCompound);
                     }
@@ -482,9 +491,9 @@ AFRAME.registerComponent("geolocate", {
                         }
                         telephoneCompound.appendChild(telephone);
                         this.el.sceneEl.appendChild(telephoneCompound);
+
                     } else if (poi.properties.amenity == 'ferry_terminal') {
                         const ferryCompound = document.createElement('a-entity');
-                        // ferryCompound.setAttribute('look-at', '[gps-projected-camera]')
                         ferryCompound.setAttribute('position', {
                             x: 0,
                             y: poi.geometry.coordinates[2],
@@ -495,7 +504,7 @@ AFRAME.registerComponent("geolocate", {
                             longitude:poi.geometry.coordinates[0]
                         });
 
-                        // add map marker model
+                        // add a model
                         const ferry = document.createElement('a-entity');
                         ferry.setAttribute('gltf-model', '#ferry');
                         ferry.setAttribute('scale', {
@@ -550,8 +559,14 @@ AFRAME.registerComponent("geolocate", {
                         if (poi.properties.name) {
                             ferryCompound.appendChild(board);
                         }
+
+                        if (poi.properties.website && ferryCheckbox.checked) {
+                            ferryCompound.setAttribute('clicker', {name:poi.properties.name, website: poi.properties.website});
+                        }
+
                         ferryCompound.appendChild(ferry);
                         this.el.sceneEl.appendChild(ferryCompound);
+
                     } else if (poi.properties.amenity == 'taxi') {
                         const taxiCompound = document.createElement('a-entity');
                         taxiCompound.setAttribute('position', {
@@ -619,6 +634,11 @@ AFRAME.registerComponent("geolocate", {
                         if (poi.properties.name) {
                             taxiCompound.appendChild(board);
                         }
+
+                        if (poi.properties.website && taxiCheckbox.checked) {
+                            taxiCompound.setAttribute('clicker', {name:poi.properties.name, website: poi.properties.website});
+                        }
+
                         taxiCompound.appendChild(taxi);
                         this.el.sceneEl.appendChild(taxiCompound);
                     }        
