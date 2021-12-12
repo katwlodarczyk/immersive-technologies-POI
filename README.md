@@ -32,7 +32,7 @@ To install app on your desktop, click on the button on the address bar and click
 
 #
 
-You can filter which type of POI you would like to explore by checking/unchecking the speciffic type:
+You can filter which type of POI you would like to explore by clicking the filter button and checking/unchecking the speciffic type:
 
 ![alt text](./screenshots/3.jpg)
 
