@@ -1,8 +1,8 @@
 const CACHE_NAME = 'cache';
 const urlsToCache = [
-    // 'index.html',
-    // 'js/bundle.js',
-    // 'css/webapp.css'
+    'index.html',
+    'js/bundle.js',
+    'css/webapp.css'
 ];
 
 self.addEventListener('install', ev=> {
@@ -11,7 +11,7 @@ self.addEventListener('install', ev=> {
         caches.open(CACHE_NAME)
             .then(cache=> {
                 console.log(`Opened cache ${cache}`);
-                // return cache.addAll(urlsToCache);
+                return cache.addAll(urlsToCache);
             })
     );
 });
